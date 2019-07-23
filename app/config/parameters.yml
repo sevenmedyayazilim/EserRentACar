@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: localhost
+    database_port: null
+    database_name: sevenyaz_carrental
+    database_user: sevenyaz_user
+    database_password: 'seven*2019'
+    mailer_transport: smtp
+    mailer_host: smtp.yandex.com.tr
+    mailer_user: bilgilendirme@sevenmedya.com
+    mailer_password: 'seven/*-2019'
+    secret: b40b96bd8edd033c56074b760b372675c33288af
