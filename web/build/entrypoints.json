@@ -1,0 +1,13 @@
+{
+  "entrypoints": {
+    "panel": {
+      "js": [
+        "/build/runtime.e59078a6.js",
+        "/build/panel.136a73d4.js"
+      ],
+      "css": [
+        "/build/panel.b9ed2e3a.css"
+      ]
+    }
+  }
+}
