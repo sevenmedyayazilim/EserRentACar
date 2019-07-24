@@ -1,3 +1,11 @@
 panel_homepage:
     path:     /
     defaults: { _controller: PanelBundle:Default:index }
+
+panel_ofis:
+    resource: "@PanelBundle/Resources/config/ofis.yml"
+    prefix:   /ofis/
+
+panel_hesap:
+    resource: "@PanelBundle/Resources/config/hesap.yml"
+    prefix:   /hesap/

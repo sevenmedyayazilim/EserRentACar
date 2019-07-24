@@ -1,0 +1,220 @@
+{% extends 'panelBase.html.twig' %}
+{% block sayfaBaslik %} Ofisler {% endblock %}
+{% block sayfaUst %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('panel_homepage') }}">Anasayfa</a></li>
+        <li class="breadcrumb-item active">Ofisler</li>
+    </ol>
+
+    <button type="button" data-toggle="modal" data-target="#ofisEkle" class="btn btn-success waves-effect d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Ofis Ekle</button>
+
+    <div id="ofisEkle" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Ofis Ekle</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-material text-left ofisEkle">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Adı : </label>
+                            <div class="col-lg-9 col-sm-12">
+                                <input type="text" class="form-control" id="adi">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Telefon : </label>
+                            <div class="col-lg-9 col-sm-12">
+                                <input type="text" class="form-control" data-inputmask="'mask': '0(999) 999 99 99'" id="telefon">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-sm-12"> Adres : </label>
+                            <div class="col-lg-9 col-sm-12">
+                                <textarea class="form-control" rows="3" id="adres"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success waves-effect" id="kaydet" onclick="ofisEkle();"><i class="fa fa-save"></i> Kaydet</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <div id="ofisDuzenle" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Ofis Düzenle</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body text-left" id="modalGelen">
+                    <span style="font-size: 16px;" class="text-danger"><img src="{{ asset('assets/loading.svg') }}" width="45"> Veriler Yükleniyor...</span>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success waves-effect" id="kaydet" onclick=""><i class="fa fa-save"></i> Kaydet</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive" id="gelenveriler">
+                    <span style="font-size: 16px;" class="text-danger"><img src="{{ asset('assets/loading.svg') }}" width="45"> Veriler Yükleniyor...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+{% block javascript %}
+<script>
+    function ofisSil(id){
+        BlokPage('enabled');
+            var url = '{{ path('panel_ofis_sil') }}';
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            xhr.open("POST", url, true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                     BlokPage('disabled');
+                     Alert('success','Ofis silindi.');
+                     ofisGetir();
+                }
+            };
+
+            fd.append("id", id);
+            xhr.send(fd);
+
+        }
+    function ofisDuzenle(id){
+    var adi = $('.ofisDuzenle #adi').val();
+    var telefon = $('.ofisDuzenle #telefon').val();
+    var adres = $('.ofisDuzenle #adres').val();
+
+    if((adi=='') || (telefon=='')){
+        Alert('warning','Lütfen zorunlu alanları doldurunuz.');
+        return false;
+    }
+
+    BlokPage('enabled');
+    $('#ofisDuzenle #kaydet').html('<i class="fa fa-cog fa-spin"></i> Kaydediliyor..');
+
+    var url = '{{ path('panel_ofis_duzenle') }}';
+        var xhr = new XMLHttpRequest();
+        var fd = new FormData();
+        xhr.open("POST", url, true);
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === 4 && xhr.status === 200) {
+                Alert('success','Ofis kaydedildi.');
+                BlokPage('disabled');
+                $('#ofisDuzenle').modal('toggle');
+                $('#ofisDuzenle #kaydet').html('<i class="fa fa-save"></i> Kaydet');
+                ofisGetir();
+            }
+        };
+        fd.append("adi", adi);
+        fd.append("telefon", telefon);
+        fd.append("adres", adres);
+        fd.append("id", id);
+
+        xhr.send(fd);
+
+    }
+    function ofisDuzenleAc(id){
+
+            var url = '{{ path('panel_ofis_duzenleAc') }}';
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            xhr.open("POST", url, true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+
+                    $('#ofisDuzenle #modalGelen').html(xhr.responseText);
+                    $('#ofisDuzenle #kaydet').attr('onclick','ofisDuzenle('+id+');');
+                }
+            };
+
+            fd.append("id", id);
+            xhr.send(fd);
+
+        }
+    function ofisEkle(){
+        var adi = $('.ofisEkle #adi').val();
+        var telefon = $('.ofisEkle #telefon').val();
+        var adres = $('.ofisEkle #adres').val();
+
+        if((adi=='') || (telefon=='')){
+            Alert('warning','Lütfen zorunlu alanları doldurunuz.');
+            return false;
+        }
+
+        BlokPage('enabled');
+        $('#ofisEkle #kaydet').html('<i class="fa fa-cog fa-spin"></i> Kaydediliyor..');
+
+        var url = '{{ path('panel_ofis_ekle') }}';
+        var xhr = new XMLHttpRequest();
+        var fd = new FormData();
+        xhr.open("POST", url, true);
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === 4 && xhr.status === 200) {
+                Alert('success','Ofis eklendi.');
+                BlokPage('disabled');
+                $('#ofisEkle').modal('toggle');
+                $('#ofisEkle #kaydet').html('<i class="fa fa-save"></i> Kaydet');
+                ofisGetir();
+            }
+        };
+        fd.append("adi", adi);
+        fd.append("telefon", telefon);
+        fd.append("adres", adres);
+
+        xhr.send(fd);
+
+    }
+    function ofisGetir(){
+
+            var url = '{{ path('panel_ofis_getir') }}';
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            xhr.open("POST", url, true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    $('#gelenveriler').html(xhr.responseText);
+
+                     $('#ofisler').DataTable({
+                            "language": {
+                                "url": "/assets/datatablesTr.json"
+                            },
+                            "responsive": true,
+                        });
+
+
+                }
+            };
+            //fd.append("adsoyad", adsoyad);
+
+            xhr.send(fd);
+    }
+
+    ofisGetir();
+
+</script>
+{% endblock %}

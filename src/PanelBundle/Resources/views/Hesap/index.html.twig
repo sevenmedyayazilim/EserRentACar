@@ -1,0 +1,153 @@
+{% extends 'panelBase.html.twig' %}
+{% block sayfaBaslik %} Hesap Bilgileri {% endblock %}
+{% block sayfaUst %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('panel_homepage') }}">Anasayfa</a></li>
+        <li class="breadcrumb-item active">Hesap Bilgileri</li>
+    </ol>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="vtabs">
+                    <ul class="nav nav-tabs tabs-vertical" role="tablist">
+                        <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#hesapbilgileri" role="tab" aria-selected="true"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Hesap Bilgileri</span> </a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#sifrebilgileri" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-lock"></i></span> <span class="hidden-xs-down">Şifre</span></a> </li>
+
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="hesapbilgileri" role="tabpanel">
+                            <div class="p-20">
+                                <form class="form-material text-left hesapBilgileri">
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Kullanıcı Adı : </label>
+                                        <div class="col-lg-5 col-sm-12">
+                                            <input type="text" class="form-control" id="kullaniciadi" value="{{ app.user.username }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Adı : </label>
+                                        <div class="col-lg-5 col-sm-12">
+                                            <input type="text" class="form-control" id="adi" value="{{ app.user.adi }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Soyadı : </label>
+                                        <div class="col-lg-5 col-sm-12">
+                                            <input type="text" class="form-control" id="soyadi" value="{{ app.user.soyadi }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> E-Posta : </label>
+                                        <div class="col-lg-5 col-sm-12">
+                                            <input type="email" class="form-control" id="eposta" value="{{ app.user.email }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-sm-12"> Telefon : </label>
+                                        <div class="col-lg-5 col-sm-12">
+                                            <input type="text" class="form-control" data-inputmask="'mask': '0(999) 999 99 99'" id="telefon" value="{{ app.user.telefon|default('') }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-sm-12"> Ünvan : </label>
+                                        <div class="col-lg-5 col-sm-12">
+                                            <input type="text" class="form-control" id="unvan" value="{{ app.user.unvan|default('') }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-sm-12"> </label>
+                                        <div class="col-lg-5 col-sm-12 text-right">
+                                            <button type="button" class="btn waves-effect waves-light btn-success" id="kaydet" onclick="hesapBilgileri({{ app.user.id }});"><i class="fa fa-save"></i> Kaydet</button>
+                                        </div>
+                                    </div>
+
+
+                                </form>
+
+                            </div>
+                        </div>
+                        <div class="tab-pane p-20" id="sifrebilgileri" role="tabpanel">
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+{% block javascript %}
+    <script>
+        function hesapBilgileri(id){
+            var kullaniciadi = $('.hesapBilgileri #kullaniciadi').val();
+            var adi = $('.hesapBilgileri #adi').val();
+            var soyadi = $('.hesapBilgileri #soyadi').val();
+            var eposta = $('.hesapBilgileri #eposta').val();
+            var telefon = $('.hesapBilgileri #telefon').val();
+            var unvan = $('.hesapBilgileri #unvan').val();
+
+
+            if((kullaniciadi=='') || (adi=='') || (soyadi=='') || (eposta=='')){
+                Alert('warning','Lütfen zorunlu alanları doldurunuz.');
+                return false;
+            }
+            if(!checkEmail(eposta)){
+                Alert('danger','E-Posta adresi geçersiz.');
+                return false;
+            }
+            if(!checkUsername(kullaniciadi)){
+                Alert('danger','Kullanıcı adı geçersiz.');
+                return false;
+            }
+
+            BlokPage('enabled');
+            $('#hesapbilgileri #kaydet').html('<i class="fa fa-cog fa-spin"></i> Kaydediliyor..');
+
+            var url = '{{ path('panel_hesap_bilgileriKaydet') }}';
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            xhr.open("POST", url, true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    if (xhr.responseText!=''){
+                        Alert('danger', xhr.responseText);
+                        BlokPage('disabled');
+                        $('#hesapbilgileri #kaydet').html('<i class="fa fa-save"></i> Kaydet');
+                        return false;
+                    }
+
+                    Alert('success','Bilgiler kaydedildi.');
+                    BlokPage('disabled');
+                    $('#hesapbilgileri #kaydet').html('<i class="fa fa-save"></i> Kaydet');
+                    setTimeout(function() {
+                        location.reload();
+                    },2000);
+                }
+            };
+            fd.append("kullaniciadi", kullaniciadi);
+            fd.append("adi", adi);
+            fd.append("soyadi", soyadi);
+            fd.append("eposta", eposta);
+            fd.append("telefon", telefon);
+            fd.append("unvan", unvan);
+            fd.append("id", id);
+
+            xhr.send(fd);
+
+        }
+    </script>
+{% endblock %}

@@ -22,7 +22,7 @@ File: scss
 
 // Import Bootstrap source files
 @import "../../../node_modules/bootstrap/scss/bootstrap";
-
+@import "~datatables.net-bs4/css/dataTables.bootstrap4.min.css";
 //This is for the icons
 @import '../icons/font-awesome/css/fontawesome-all.css';
 @import '../icons/simple-line-icons/css/simple-line-icons.css';

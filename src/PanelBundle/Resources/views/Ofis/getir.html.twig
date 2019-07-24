@@ -1,0 +1,38 @@
+
+<table id="ofisler" class="table display table-bordered table-striped no-wrap">
+    <thead>
+    <tr>
+        <th width="5%" >S.No</th>
+        <th>Adı</th>
+        <th>Telefon</th>
+        <th>Adres</th>
+        <th width="5%">#</th>
+
+    </tr>
+    </thead>
+    <tbody>
+        {% set sn = 1 %}
+        {% for ofis in ofisler %}
+
+            <tr>
+                <td class="text-center">{{ sn }}</td>
+                <td><b>{{ ofis.adi }}</b></td>
+                <td>{{ ofis.telefon }}</td>
+                <td>{{ ofis.adres }}</td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <i class="ti-more-alt"></i>
+                        </button>
+                        <div class="dropdown-menu" x-placement="bottom-start">
+                            <a class="dropdown-item" href="javascript:void(0)" onclick="ofisDuzenleAc({{ ofis.id }});" data-toggle="modal" data-target="#ofisDuzenle"><i class="ti-pencil-alt"></i> Düzenle</a>
+                            <a class="dropdown-item" href="javascript:void(0)" onclick="ofisSil({{ ofis.id }});"><i class="ti-close"></i> Sil</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% set sn = sn+1 %}
+        {% endfor %}
+    {# <tr><td colspan="5" class="text-danger" style="font-size: 16px;"><img src="{{ asset('assets/loading.svg') }}" width="45"> Veriler Yükleniyor...</td></tr>#}
+    </tbody>
+</table>

@@ -1,0 +1,7 @@
+panel_hesap_homepage:
+  path:     /
+  defaults: { _controller: PanelBundle:Hesap:index }
+
+panel_hesap_bilgileriKaydet:
+  path:     /bilgileriKaydet
+  defaults: { _controller: PanelBundle:Hesap:bilgileriKaydet }

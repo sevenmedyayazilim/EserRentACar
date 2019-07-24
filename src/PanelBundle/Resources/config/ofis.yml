@@ -1,0 +1,23 @@
+panel_ofis_homepage:
+  path:     /
+  defaults: { _controller: PanelBundle:Ofis:index }
+
+panel_ofis_getir:
+  path:     /getir
+  defaults: { _controller: PanelBundle:Ofis:getir }
+
+panel_ofis_ekle:
+  path:     /ekle
+  defaults: { _controller: PanelBundle:Ofis:ekle }
+
+panel_ofis_duzenleAc:
+  path:     /duzenleAc
+  defaults: { _controller: PanelBundle:Ofis:duzenleAc }
+
+panel_ofis_duzenle:
+  path:     /duzenle
+  defaults: { _controller: PanelBundle:Ofis:duzenle }
+
+panel_ofis_sil:
+  path:     /sil
+  defaults: { _controller: PanelBundle:Ofis:sil }
