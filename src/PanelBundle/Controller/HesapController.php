@@ -66,5 +66,28 @@ class HesapController extends Controller
 
         return new Response('');
     }
+    public function sifreDegistirAction(Request $veri)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $sifre = $veri->request->get('sifre');
+        $id = $veri->request->get('id');
+
+        $encoder_service = $this->get('security.encoder_factory');
+        $encoder = $encoder_service->getEncoder($this->getUser());
+        $new_pwd_encoded = $encoder->encodePassword($sifre, $this->getUser()->getSalt());
+
+
+        $qb=$em->createQueryBuilder();
+        $q = $qb->update('PanelBundle:User', 'u')
+            ->set('u.password', ':password')
+            ->where('u.id = '.$id)
+            ->setParameter('password', $new_pwd_encoded)
+            ->getQuery()
+            ->execute();
+
+        return new Response('');
+
+    }
 
 }

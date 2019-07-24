@@ -72,11 +72,32 @@
 
 
                                 </form>
-
                             </div>
                         </div>
                         <div class="tab-pane p-20" id="sifrebilgileri" role="tabpanel">
+                            <form class="form-material text-left sifreBilgileri">
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Şifre : </label>
+                                    <div class="col-lg-5 col-sm-12">
+                                        <input type="password" class="form-control" id="sifre">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Şifre (Tekrar) : </label>
+                                    <div class="col-lg-5 col-sm-12">
+                                        <input type="password" class="form-control" id="sifretekrar">
+                                    </div>
+                                </div>
 
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-sm-12"> </label>
+                                    <div class="col-lg-5 col-sm-12 text-right">
+                                        <button type="button" class="btn waves-effect waves-light btn-success" id="kaydet" onclick="sifreDegistir({{ app.user.id }});"><i class="fa fa-save"></i> Kaydet</button>
+                                    </div>
+                                </div>
+
+
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -92,6 +113,44 @@
 {% endblock %}
 {% block javascript %}
     <script>
+        function sifreDegistir(id){
+            var sifre = $('.sifreBilgileri #sifre').val();
+            var sifretekrar = $('.sifreBilgileri #sifretekrar').val();
+
+            if((sifre=='') || (sifretekrar=='')){
+                Alert('warning','Lütfen zorunlu alanları doldurunuz.');
+                return false;
+            }
+            if((sifre != sifretekrar)){
+                Alert('danger','Şifreniz tekrarı ile aynı değil.');
+                return false;
+            }
+
+            BlokPage('enabled');
+            $('#sifrebilgileri #kaydet').html('<i class="fa fa-cog fa-spin"></i> Kaydediliyor..');
+
+            var url = '{{ path('panel_hesap_sifreDegistir') }}';
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            xhr.open("POST", url, true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+
+                    Alert('success','Şifre değiştirildi.');
+                    BlokPage('disabled');
+                    $('#sifrebilgileri #kaydet').html('<i class="fa fa-save"></i> Kaydet');
+                    setTimeout(function() {
+                        location.reload();
+                    },2000);
+                }
+            };
+            fd.append("sifre", sifre);
+            fd.append("id", id);
+
+            xhr.send(fd);
+
+        }
+
         function hesapBilgileri(id){
             var kullaniciadi = $('.hesapBilgileri #kullaniciadi').val();
             var adi = $('.hesapBilgileri #adi').val();

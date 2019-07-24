@@ -5,3 +5,7 @@ panel_hesap_homepage:
 panel_hesap_bilgileriKaydet:
   path:     /bilgileriKaydet
   defaults: { _controller: PanelBundle:Hesap:bilgileriKaydet }
+
+panel_hesap_sifreDegistir:
+  path:     /sifreDegistir
+  defaults: { _controller: PanelBundle:Hesap:sifreDegistir }
