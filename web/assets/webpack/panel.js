@@ -17,3 +17,8 @@ require('datatables.net');
 require('datatables.net-bs4/js/dataTables.bootstrap4.min.js');
 require('../js/custom.min');
 require('inputmask/dist/min/jquery.inputmask.bundle.min.js');
+require('../../../toast-master/js/jquery.toast');
+const swal = require('../../../node_modules/sweetalert2/dist/sweetalert2.all.min.js');
+window.swal = swal;
+
+

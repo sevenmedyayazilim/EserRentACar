@@ -1,0 +1,301 @@
+{% extends 'panelBase.html.twig' %}
+{% block sayfaBaslik %} Tüm Hesaplar {% endblock %}
+{% block sayfaUst %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('panel_homepage') }}">Anasayfa</a></li>
+        <li class="breadcrumb-item active">Tüm Hesaplar</li>
+    </ol>
+
+
+    <button type="button" data-toggle="modal" data-target="#hesapEkle" class="btn btn-success waves-effect d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Hesap Ekle</button>
+
+    <div id="hesapEkle" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Hesap Ekle</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-material text-left hesapEkle">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Kullanıcı Adı : </label>
+                            <div class="col-lg-9 col-sm-12">
+                                <input type="text" class="form-control" id="kullaniciadi">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Adı : </label>
+                            <div class="col-lg-9 col-sm-12">
+                                <input type="text" class="form-control" id="adi">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Soyadı : </label>
+                            <div class="col-lg-9 col-sm-12">
+                                <input type="text" class="form-control" id="soyadi">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> E-Posta : </label>
+                            <div class="col-lg-9 col-sm-12">
+                                <input type="email" class="form-control" id="eposta">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-sm-12"> Telefon : </label>
+                            <div class="col-lg-9 col-sm-12">
+                                <input type="text" class="form-control" data-inputmask="'mask': '0(999) 999 99 99'" id="telefon">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-sm-12"> Ünvan : </label>
+                            <div class="col-lg-9 col-sm-12">
+                                <input type="text" class="form-control" id="unvan">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success waves-effect" id="kaydet" onclick="hesapEkle();"><i class="fa fa-save"></i> Kaydet</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <div id="hesapDuzenle" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Hesap Düzenle</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body text-left" id="modalGelen">
+                    <span style="font-size: 16px;" class="text-danger"><img src="{{ asset('assets/loading.svg') }}" width="45"> Veriler Yükleniyor...</span>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success waves-effect" id="kaydet" onclick=""><i class="fa fa-save"></i> Kaydet</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive" id="gelenveriler">
+                        <span style="font-size: 16px;" class="text-danger"><img src="{{ asset('assets/loading.svg') }}" width="45"> Veriler Yükleniyor...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+{% block javascript %}
+<script>
+function hesapSil(id){
+
+                swal.fire({
+                    title: 'Silinsin mi?',
+                    text: "Hesabın tüm verileri silinecek.",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#00c292',
+                    cancelButtonColor: '#e46a76',
+                    confirmButtonText: 'Sil',
+                    cancelButtonText: 'İptal'
+                }).then((result) => {
+                    if (result.value) {
+                            BlokPage('enabled');
+                            var url = '{{ path('panel_hesaplar_sil') }}';
+                            var xhr = new XMLHttpRequest();
+                            var fd = new FormData();
+                            xhr.open("POST", url, true);
+                            xhr.onreadystatechange = function () {
+                                if(xhr.readyState === 4 && xhr.status === 200) {
+                                     BlokPage('disabled');
+                                     Bildirim('success','Hesap silindi.');
+                                     hesapGetir();
+                                }
+                            };
+
+                            fd.append("id", id);
+                            xhr.send(fd);
+                    }
+                })
+
+}
+function hesapDuzenle(id){
+    var kullaniciadi = $('.hesapDuzenle #kullaniciadi').val();
+    var adi = $('.hesapDuzenle #adi').val();
+    var soyadi = $('.hesapDuzenle #soyadi').val();
+    var eposta = $('.hesapDuzenle #eposta').val();
+    var telefon = $('.hesapDuzenle #telefon').val();
+    var unvan = $('.hesapDuzenle #unvan').val();
+
+
+    if((kullaniciadi=='') || (adi=='') || (soyadi=='') || (eposta=='')){
+        Bildirim('warning','Lütfen zorunlu alanları doldurunuz.');
+        return false;
+    }
+
+    if(!checkEmail(eposta)){
+        Bildirim('error','E-Posta adresi geçersiz.');
+        return false;
+    }
+    if(!checkUsername(kullaniciadi)){
+        Bildirim('error','Kullanıcı adı geçersiz.');
+        return false;
+    }
+
+    BlokPage('enabled');
+    $('#hesapDuzenle #kaydet').html('<i class="fa fa-cog fa-spin"></i> Kaydediliyor..');
+
+    var url = '{{ path('panel_hesaplar_duzenle') }}';
+        var xhr = new XMLHttpRequest();
+        var fd = new FormData();
+        xhr.open("POST", url, true);
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === 4 && xhr.status === 200) {
+                if (xhr.responseText!=''){
+                    Bildirim('error', xhr.responseText);
+                    BlokPage('disabled');
+                    $('#hesapDuzenle #kaydet').html('<i class="fa fa-save"></i> Kaydet');
+                    return false;
+                }
+
+                Bildirim('success','Hesap kaydedildi.');
+                BlokPage('disabled');
+                $('#hesapDuzenle').modal('toggle');
+                $('#hesapDuzenle #kaydet').html('<i class="fa fa-save"></i> Kaydet');
+                hesapGetir();
+
+            }
+        };
+
+        fd.append("kullaniciadi", kullaniciadi);
+        fd.append("adi", adi);
+        fd.append("soyadi", soyadi);
+        fd.append("eposta", eposta);
+        fd.append("telefon", telefon);
+        fd.append("unvan", unvan);
+        fd.append("id", id);
+
+        xhr.send(fd);
+
+    }
+    function hesapDuzenleAc(id){
+
+    var url = '{{ path('panel_hesaplar_duzenleAc') }}';
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            xhr.open("POST", url, true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+
+                    $('#hesapDuzenle #modalGelen').html(xhr.responseText);
+                    $('#hesapDuzenle #kaydet').attr('onclick','hesapDuzenle('+id+');');
+                    $(":input").inputmask();
+                }
+            };
+
+            fd.append("id", id);
+            xhr.send(fd);
+
+        }
+    function hesapEkle(){
+    var kullaniciadi = $('.hesapEkle #kullaniciadi').val();
+    var adi = $('.hesapEkle #adi').val();
+    var soyadi = $('.hesapEkle #soyadi').val();
+    var eposta = $('.hesapEkle #eposta').val();
+    var telefon = $('.hesapEkle #telefon').val();
+    var unvan = $('.hesapEkle #unvan').val();
+
+
+    if((kullaniciadi=='') || (adi=='') || (soyadi=='') || (eposta=='')){
+        Bildirim('warning','Lütfen zorunlu alanları doldurunuz.');
+        return false;
+    }
+
+    if(!checkEmail(eposta)){
+        Bildirim('error','E-Posta adresi geçersiz.');
+        return false;
+    }
+    if(!checkUsername(kullaniciadi)){
+        Bildirim('error','Kullanıcı adı geçersiz.');
+        return false;
+    }
+
+    BlokPage('enabled');
+    $('#hesapEkle #kaydet').html('<i class="fa fa-cog fa-spin"></i> Kaydediliyor..');
+
+        var url = '{{ path('panel_hesaplar_ekle') }}';
+        var xhr = new XMLHttpRequest();
+        var fd = new FormData();
+        xhr.open("POST", url, true);
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === 4 && xhr.status === 200) {
+               if (xhr.responseText!=''){
+                    Bildirim('error', xhr.responseText);
+                    BlokPage('disabled');
+                    $('#hesapEkle #kaydet').html('<i class="fa fa-save"></i> Kaydet');
+                    return false;
+                }
+
+                Bildirim('success','Hesap eklendi ve şifre e-posta adresine gönderildi.');
+                BlokPage('disabled');
+                $('#hesapEkle').modal('toggle');
+                $('#hesapEkle #kaydet').html('<i class="fa fa-save"></i> Kaydet');
+                hesapGetir();
+            }
+        };
+        fd.append("kullaniciadi", kullaniciadi);
+        fd.append("adi", adi);
+        fd.append("soyadi", soyadi);
+        fd.append("eposta", eposta);
+        fd.append("telefon", telefon);
+        fd.append("unvan", unvan);
+
+        xhr.send(fd);
+
+    }
+
+    function hesapGetir(){
+
+            var url = '{{ path('panel_hesaplar_getir') }}';
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            xhr.open("POST", url, true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    $('#gelenveriler').html(xhr.responseText);
+
+                     $('#hesaplar').DataTable({
+                            "language": {
+                                "url": "/assets/datatablesTr.json"
+                            },
+                            "responsive": true,
+                        });
+
+
+                }
+            };
+            //fd.append("adsoyad", adsoyad);
+
+            xhr.send(fd);
+    }
+
+    hesapGetir();
+
+</script>
+{% endblock %}

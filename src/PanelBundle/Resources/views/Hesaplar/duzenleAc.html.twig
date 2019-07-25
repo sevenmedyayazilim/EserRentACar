@@ -1,0 +1,40 @@
+
+
+<form class="form-material text-left hesapDuzenle">
+    <div class="form-group row">
+        <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Kullanıcı Adı : </label>
+        <div class="col-lg-9 col-sm-12">
+            <input type="text" class="form-control" id="kullaniciadi" value="{{ hesap.username }}">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Adı : </label>
+        <div class="col-lg-9 col-sm-12">
+            <input type="text" class="form-control" id="adi" value="{{ hesap.adi }}">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Soyadı : </label>
+        <div class="col-lg-9 col-sm-12">
+            <input type="text" class="form-control" id="soyadi" value="{{ hesap.soyadi }}">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> E-Posta : </label>
+        <div class="col-lg-9 col-sm-12">
+            <input type="email" class="form-control" id="eposta" value="{{ hesap.email }}">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-lg-3 col-sm-12"> Telefon : </label>
+        <div class="col-lg-9 col-sm-12">
+            <input type="text" class="form-control" data-inputmask="'mask': '0(999) 999 99 99'" id="telefon" value="{{ hesap.telefon|default('') }}">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-lg-3 col-sm-12"> Ünvan : </label>
+        <div class="col-lg-9 col-sm-12">
+            <input type="text" class="form-control" id="unvan" value="{{ hesap.unvan|default('') }}">
+        </div>
+    </div>
+</form>

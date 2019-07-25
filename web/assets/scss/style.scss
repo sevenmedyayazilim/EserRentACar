@@ -21,8 +21,11 @@ File: scss
 @import 'colors/purple-dark';
 
 // Import Bootstrap source files
-@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap";
 @import "~datatables.net-bs4/css/dataTables.bootstrap4.min.css";
+@import "../../../toast-master/css/jquery.toast.css";
+@import "~sweetalert2/src/sweetalert2.scss";
+
 //This is for the icons
 @import '../icons/font-awesome/css/fontawesome-all.css';
 @import '../icons/simple-line-icons/css/simple-line-icons.css';

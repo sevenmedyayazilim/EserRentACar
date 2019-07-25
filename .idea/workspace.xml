@@ -2,10 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20eff917-94ea-47a5-b739-311271d16c91" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/mailBase.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Controller/HesaplarController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/config/hesaplar.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/duzenleAc.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/getir.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/yenikullanici_mail.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/panelBase.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/panelBase.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PanelBundle/Controller/HesapController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Controller/HesapController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PanelBundle/Resources/config/hesap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/config/hesap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PanelBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesap/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesap/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/scss/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/webpack/panel.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/webpack/panel.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,75 +33,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/panelBase.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="165" column="226" selection-start-line="165" selection-start-column="226" selection-end-line="165" selection-end-column="226" />
+            <state relative-caret-position="248">
+              <caret line="368" column="4" selection-start-line="368" selection-start-column="4" selection-end-line="368" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/config/hesaplar.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PanelBundle/Controller/HesaplarController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="787">
+              <caret line="161" column="22" selection-start-line="161" selection-start-column="22" selection-end-line="161" selection-end-column="22" />
               <folding>
-                <element signature="e#10741#10747#0#HTML" expanded="true" />
-                <element signature="e#10968#10988#0#Twig" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#21278#21285#1#HTML" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#338#371#1#PHP" expanded="true" />
+                <element signature="e#790#823#0#PHP" expanded="true" />
+                <element signature="e#2808#2854#0#PHP" expanded="true" />
+                <element signature="e#3564#3601#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
+              <folding>
+                <element signature="e#5815#5833#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/config/routing.yml">
+        <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/getir.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/config/hesap.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="26" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PanelBundle/Controller/OfisController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="50" column="6" selection-start-line="50" selection-start-column="6" selection-end-line="55" selection-end-column="32" />
-              <folding>
-                <element signature="e#42#70#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PanelBundle/Controller/HesapController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="73" selection-start-line="73" selection-end-line="73" />
-              <folding>
-                <element signature="e#42#70#0#PHP" expanded="true" />
-                <element signature="e#335#365#1#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesap/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
-              <folding>
-                <element signature="e#1357#4867#0#HTML" />
-                <element signature="e#7355#7380#0#Twig" expanded="true" />
-                <element signature="e#5987#6014#0#Twig" expanded="true" />
-              </folding>
+            <state relative-caret-position="638">
+              <caret line="35" column="96" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="96" />
             </state>
           </provider>
         </entry>
@@ -98,19 +91,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>app</find>
-      <find>search</find>
-      <find>ehliyet</find>
-      <find>yasSin</find>
-      <find>$kullanici</find>
-      <find>$yetki</find>
-      <find>yetki</find>
-      <find>$yyakitTipi</find>
-      <find>scrollbar</find>
-      <find>sidebarmenu</find>
-      <find>responsive</find>
-      <find>sparkline</find>
-      <find>avatar</find>
       <find>Medium model</find>
       <find>text-right</find>
       <find>Phone</find>
@@ -126,7 +106,29 @@
       <find>Hesap</find>
       <find>Ofis</find>
       <find>sifreBilgileri</find>
+      <find>Alert</find>
+      <find>Tüm</find>
+      <find>Tü</find>
+      <find>hesapEkle</find>
+      <find>eposta</find>
+      <find>|| (adi=='')</find>
+      <find>Bildirim('danger',</find>
+      <find>Poppins</find>
+      <find>hesapbilgileri</find>
+      <find>ofis</find>
+      <find>ekle</find>
+      <find>Ekle</find>
+      <find>Confirm</find>
+      <find>sa-confirm</find>
+      <find>swal</find>
     </findStrings>
+    <replaceStrings>
+      <replace>Bildirim('error',</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src/PanelBundle/Resources</dir>
+      <dir>$PROJECT_DIR$/web/assets/scss</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -141,21 +143,33 @@
         <option value="$PROJECT_DIR$/src/PanelBundle/Entity/Ofis.php" />
         <option value="$PROJECT_DIR$/src/PanelBundle/Entity/Arac.php" />
         <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/index.html.twig" />
-        <option value="$PROJECT_DIR$/web/assets/scss/style.scss" />
         <option value="$PROJECT_DIR$/web/assets/datatablesTr.json" />
         <option value="$PROJECT_DIR$/../../Temalar/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/material/ui-toasts.html" />
         <option value="$PROJECT_DIR$/web/assets/js/custom.js" />
-        <option value="$PROJECT_DIR$/web/assets/webpack/panel.js" />
         <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/duzenleAc.html.twig" />
         <option value="$PROJECT_DIR$/src/PanelBundle/Resources/config/ofis.yml" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Controller/OfisController.php" />
         <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/getir.html.twig" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/PanelBundle/Resources/config/hesap.yml" />
         <option value="$PROJECT_DIR$/src/PanelBundle/Controller/HesapController.php" />
         <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesap/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/PanelBundle/Controller/OfisController.php" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/web/mail.html" />
+        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/mail.html.twig" />
+        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/yenikullanici_mail.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/mailBase.html.twig" />
+        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/duzenleAc.html.twig" />
+        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/getir.html.twig" />
+        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/config/hesaplar.yml" />
+        <option value="$PROJECT_DIR$/src/PanelBundle/Controller/HesaplarController.php" />
+        <option value="$PROJECT_DIR$/../../Temalar/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/material/ui-sweetalert.html" />
+        <option value="$PROJECT_DIR$/web/assets/scss/style.scss" />
+        <option value="$PROJECT_DIR$/web/assets/webpack/panel.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/panelBase.html.twig" />
+        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/index.html.twig" />
       </list>
     </option>
   </component>
@@ -211,7 +225,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
@@ -240,6 +254,19 @@
               <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -305,6 +332,15 @@
               <item name="PanelBundle" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="Resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Hesaplar" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="PanelBundle" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="Ofis" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -323,13 +359,6 @@
               <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="web" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="web" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="webpack" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
@@ -342,7 +371,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -354,15 +383,16 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="configurable.stylesheets.stylelint" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesap" />
+      <recent name="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar" />
       <recent name="$PROJECT_DIR$/src/PanelBundle/Controller" />
       <recent name="$PROJECT_DIR$/src/PanelBundle/Resources/config" />
+      <recent name="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesap" />
       <recent name="$PROJECT_DIR$/web/assets" />
-      <recent name="$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -392,18 +422,19 @@
       <workItem from="1563874928630" duration="632000" />
       <workItem from="1563876072598" duration="241000" />
       <workItem from="1563877276329" duration="10941000" />
-      <workItem from="1563949512345" duration="24848000" />
+      <workItem from="1563949512345" duration="24969000" />
+      <workItem from="1564037700663" duration="11235000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37783000" />
+    <option name="totallyTimeSpent" value="49139000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2630458" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16453674" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -442,13 +473,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
           <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/scss/core/core.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -505,13 +529,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/scss/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="13" column="21" lean-forward="true" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -573,13 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/webpack/panel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Temalar/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/material/table-data-table.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1730">
@@ -604,44 +614,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/getir.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1027">
-          <caret line="106" column="29" lean-forward="true" selection-start-line="106" selection-start-column="29" selection-end-line="106" selection-end-column="29" />
-          <folding>
-            <element signature="e#4153#4167#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/config/ofis.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Controller/OfisController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="50" column="6" selection-start-line="50" selection-start-column="6" selection-end-line="55" selection-end-column="32" />
-          <folding>
-            <element signature="e#42#70#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -652,39 +628,201 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Controller/HesapController.php">
+    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
-          <folding>
-            <element signature="e#42#70#0#PHP" expanded="true" />
-            <element signature="e#335#365#1#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="315">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesap/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
+        <state relative-caret-position="192">
+          <caret line="176" column="30" selection-start-line="176" selection-start-column="16" selection-end-line="176" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/assets/scss/core/theme-settings.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-729" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/assets/scss/core/core.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="21" lean-forward="true" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/assets/scss/variable.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="121" column="50" lean-forward="true" selection-start-line="121" selection-start-column="29" selection-end-line="121" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/mail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="26" lean-forward="true" selection-end-line="85" selection-end-column="7" />
           <folding>
-            <element signature="e#1357#4867#0#HTML" />
-            <element signature="e#7355#7380#0#Twig" expanded="true" />
-            <element signature="e#5987#6014#0#Twig" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#b#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#1598#1604#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/yenikullanici_mail.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+          <folding>
+            <element signature="e#12#30#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/mailBase.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/duzenleAc.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="32" column="10" lean-forward="true" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Controller/HesapController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="29" column="78" lean-forward="true" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="78" />
+          <folding>
+            <element signature="e#42#70#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/getir.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="88" column="4" selection-start-line="88" selection-start-column="4" selection-end-line="105" selection-end-column="9" />
+          <folding>
+            <element signature="e#4153#4167#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/getir.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="35" column="96" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Controller/OfisController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="81" column="2" lean-forward="true" selection-start-line="81" selection-start-column="2" selection-end-line="93" selection-end-column="5" />
+          <folding>
+            <element signature="e#42#70#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/config/hesaplar.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Temalar/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/assets/node_modules/sweetalert2/sweet-alert.init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="45" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="7" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/panelBase.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="165" column="226" selection-start-line="165" selection-start-column="226" selection-end-line="165" selection-end-column="226" />
+        <state relative-caret-position="248">
+          <caret line="368" column="4" selection-start-line="368" selection-start-column="4" selection-end-line="368" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Temalar/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/material/ui-sweetalert.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="718">
+          <caret line="861" column="65" lean-forward="true" selection-start-line="861" selection-start-column="65" selection-end-line="861" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/assets/scss/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/assets/webpack/panel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Controller/HesaplarController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="787">
+          <caret line="161" column="22" selection-start-line="161" selection-start-column="22" selection-end-line="161" selection-end-column="22" />
           <folding>
-            <element signature="e#10741#10747#0#HTML" expanded="true" />
-            <element signature="e#10968#10988#0#Twig" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#21278#21285#1#HTML" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#338#371#1#PHP" expanded="true" />
+            <element signature="e#790#823#0#PHP" expanded="true" />
+            <element signature="e#2808#2854#0#PHP" expanded="true" />
+            <element signature="e#3564#3601#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
+          <folding>
+            <element signature="e#5815#5833#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>

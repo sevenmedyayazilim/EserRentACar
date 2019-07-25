@@ -118,11 +118,11 @@
             var sifretekrar = $('.sifreBilgileri #sifretekrar').val();
 
             if((sifre=='') || (sifretekrar=='')){
-                Alert('warning','Lütfen zorunlu alanları doldurunuz.');
+                Bildirim('warning','Lütfen zorunlu alanları doldurunuz.');
                 return false;
             }
             if((sifre != sifretekrar)){
-                Alert('danger','Şifreniz tekrarı ile aynı değil.');
+                Bildirim('error','Şifreniz tekrarı ile aynı değil.');
                 return false;
             }
 
@@ -136,7 +136,7 @@
             xhr.onreadystatechange = function () {
                 if(xhr.readyState === 4 && xhr.status === 200) {
 
-                    Alert('success','Şifre değiştirildi.');
+                    Bildirim('success','Şifre değiştirildi.');
                     BlokPage('disabled');
                     $('#sifrebilgileri #kaydet').html('<i class="fa fa-save"></i> Kaydet');
                     setTimeout(function() {
@@ -161,15 +161,15 @@
 
 
             if((kullaniciadi=='') || (adi=='') || (soyadi=='') || (eposta=='')){
-                Alert('warning','Lütfen zorunlu alanları doldurunuz.');
+                Bildirim('warning','Lütfen zorunlu alanları doldurunuz.');
                 return false;
             }
             if(!checkEmail(eposta)){
-                Alert('danger','E-Posta adresi geçersiz.');
+                Bildirim('error','E-Posta adresi geçersiz.');
                 return false;
             }
             if(!checkUsername(kullaniciadi)){
-                Alert('danger','Kullanıcı adı geçersiz.');
+                Bildirim('error','Kullanıcı adı geçersiz.');
                 return false;
             }
 
@@ -183,13 +183,13 @@
             xhr.onreadystatechange = function () {
                 if(xhr.readyState === 4 && xhr.status === 200) {
                     if (xhr.responseText!=''){
-                        Alert('danger', xhr.responseText);
+                        Bildirim('error', xhr.responseText);
                         BlokPage('disabled');
                         $('#hesapbilgileri #kaydet').html('<i class="fa fa-save"></i> Kaydet');
                         return false;
                     }
 
-                    Alert('success','Bilgiler kaydedildi.');
+                    Bildirim('success','Bilgiler kaydedildi.');
                     BlokPage('disabled');
                     $('#hesapbilgileri #kaydet').html('<i class="fa fa-save"></i> Kaydet');
                     setTimeout(function() {

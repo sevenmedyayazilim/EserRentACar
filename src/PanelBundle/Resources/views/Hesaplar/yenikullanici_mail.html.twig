@@ -1,0 +1,11 @@
+{% extends 'mailBase.html.twig' %}
+{% block date %}{{ 'now'|date('d/m/Y H:s') }}{% endblock %}
+{% block subject %}{{ konu }}{% endblock %}
+{% block body %}
+    Sayın <b>{{ adi }} {{ soyadi }}</b> Seven Car Rental üyeliğiniz aktif edilmiştir. Aşağıda yer alan bilgiler ile girişinizi yapabilirsiniz.
+    <br>
+    <br>
+    <b>Kullanıcı adınız :</b> {{ kullaniciadi }} <br>
+    <b>Şifreniz : </b> <br>
+    <span style="font-size: 20px;color:#fa6742;">{{ pass }}</span>
+{% endblock %}

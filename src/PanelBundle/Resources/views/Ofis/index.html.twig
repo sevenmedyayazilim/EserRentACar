@@ -95,7 +95,7 @@
             xhr.onreadystatechange = function () {
                 if(xhr.readyState === 4 && xhr.status === 200) {
                      BlokPage('disabled');
-                     Alert('success','Ofis silindi.');
+                     Bildirim('success','Ofis silindi.');
                      ofisGetir();
                 }
             };
@@ -110,7 +110,7 @@
     var adres = $('.ofisDuzenle #adres').val();
 
     if((adi=='') || (telefon=='')){
-        Alert('warning','Lütfen zorunlu alanları doldurunuz.');
+        Bildirim('warning','Lütfen zorunlu alanları doldurunuz.');
         return false;
     }
 
@@ -123,7 +123,7 @@
         xhr.open("POST", url, true);
         xhr.onreadystatechange = function () {
             if(xhr.readyState === 4 && xhr.status === 200) {
-                Alert('success','Ofis kaydedildi.');
+                Bildirim('success','Ofis kaydedildi.');
                 BlokPage('disabled');
                 $('#ofisDuzenle').modal('toggle');
                 $('#ofisDuzenle #kaydet').html('<i class="fa fa-save"></i> Kaydet');
@@ -149,6 +149,7 @@
 
                     $('#ofisDuzenle #modalGelen').html(xhr.responseText);
                     $('#ofisDuzenle #kaydet').attr('onclick','ofisDuzenle('+id+');');
+                    $(":input").inputmask();
                 }
             };
 
@@ -162,7 +163,7 @@
         var adres = $('.ofisEkle #adres').val();
 
         if((adi=='') || (telefon=='')){
-            Alert('warning','Lütfen zorunlu alanları doldurunuz.');
+            Bildirim('warning','Lütfen zorunlu alanları doldurunuz.');
             return false;
         }
 
@@ -175,7 +176,7 @@
         xhr.open("POST", url, true);
         xhr.onreadystatechange = function () {
             if(xhr.readyState === 4 && xhr.status === 200) {
-                Alert('success','Ofis eklendi.');
+                Bildirim('success','Ofis eklendi.');
                 BlokPage('disabled');
                 $('#ofisEkle').modal('toggle');
                 $('#ofisEkle #kaydet').html('<i class="fa fa-save"></i> Kaydet');

@@ -1,0 +1,45 @@
+
+<table id="hesaplar" class="table display table-bordered table-striped no-wrap">
+    <thead>
+    <tr>
+        <th width="5%" >S.No</th>
+        <th>Kullanıcı Adı</th>
+        <th>Adı</th>
+        <th>Soyadı</th>
+        <th>E-Posta</th>
+        <th>Telefon</th>
+        <th>Ünvan</th>
+        <th width="5%">#</th>
+
+    </tr>
+    </thead>
+    <tbody>
+        {% set sn = 1 %}
+        {% for hesap in hesaplar %}
+
+            <tr>
+                <td class="text-center">{{ sn }}</td>
+                <td><b>{{ hesap.username }}</b></td>
+                <td>{{ hesap.adi }}</td>
+                <td>{{ hesap.soyadi }}</td>
+                <td>{{ hesap.email }}</td>
+                <td>{{ hesap.telefon|default('') }}</td>
+                <td>{{ hesap.unvan|default('') }}</td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <i class="ti-more-alt"></i>
+                        </button>
+                        <div class="dropdown-menu" x-placement="bottom-start">
+                            <a class="dropdown-item" href="javascript:void(0)" onclick="hesapDuzenleAc({{ hesap.id }});" data-toggle="modal" data-target="#ofisDuzenle"><i class="ti-lock"></i> Şifre Değiştir</a>
+                            <a class="dropdown-item" href="javascript:void(0)" onclick="hesapDuzenleAc({{ hesap.id }});" data-toggle="modal" data-target="#hesapDuzenle"><i class="ti-pencil-alt"></i> Düzenle</a>
+                            <a class="dropdown-item" href="javascript:void(0)" onclick="hesapSil({{ hesap.id }});"><i class="ti-close"></i> Sil</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% set sn = sn+1 %}
+        {% endfor %}
+    {# <tr><td colspan="5" class="text-danger" style="font-size: 16px;"><img src="{{ asset('assets/loading.svg') }}" width="45"> Veriler Yükleniyor...</td></tr>#}
+    </tbody>
+</table>

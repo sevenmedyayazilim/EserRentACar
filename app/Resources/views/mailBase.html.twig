@@ -1,0 +1,76 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700);
+        .mail{
+            font-family: 'Poppins', sans-serif!important;
+        }
+        .ortaalan{
+            background-color: #fff;
+            border-radius: 10px;
+            height: auto;
+            padding: 10px;
+            margin: 10px;
+            font-size: 13px;
+
+        }
+        .logo img{
+            width: 90px;
+            margin-left: 10px;
+        }
+        .logo{
+            padding: 10px;
+        }
+        .tarih{
+            margin-top: 20px;
+            font-size: 12px;
+        }
+        .copyright{
+            font-size: 10px;
+            text-align: center;
+        }
+        .ortaalan h3{
+            padding: 0!important;
+        }
+        @media screen and (min-width: 500px) {
+            .ortaalan{
+                width: 450px;
+                margin-left: auto!important;
+                margin-right: auto!important;
+            }
+            .logo{
+                width: 450px;
+                margin-left: auto!important;
+                margin-right: auto!important;
+            }
+        }
+    </style>
+
+</head>
+<body class="mail">
+<div class="logo">
+    <table width="100%">
+        <tr>
+            <td>
+                <img src="https://carrental.sevenyazilim.xyz/assets/logo.png" >
+            </td>
+            <td style="text-align: right;">
+                <div class="tarih">{% block date %}{% endblock %}</div>
+            </td>
+        </tr>
+    </table>
+
+</div>
+<div class="ortaalan">
+    <b style="font-size: 15px;">{% block subject %}{% endblock %}</b>
+</div>
+<div class="ortaalan">
+    {% block body %} {% endblock %}
+</div>
+<div class="copyright">
+    &copy; 2019 Seven Car Rental
+</div>
+
+</body>
+</html>

@@ -9,3 +9,7 @@ panel_ofis:
 panel_hesap:
     resource: "@PanelBundle/Resources/config/hesap.yml"
     prefix:   /hesap/
+
+panel_hesaplar:
+    resource: "@PanelBundle/Resources/config/hesaplar.yml"
+    prefix:   /hesaplar/

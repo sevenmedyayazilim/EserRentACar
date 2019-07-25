@@ -165,13 +165,13 @@
                     <li class="nav-item dropdown u-pro">
                         <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="hidden-md-down">{{ app.user.adi }} &nbsp; <i class="fa fa-angle-down"></i></span> </a>
                         <div class="dropdown-menu dropdown-menu-right animated flipInY">
-                            <!-- text-->
+
                             <a href="{{ path('panel_hesap_homepage') }}" class="dropdown-item"><i class="icon-user"></i> Hesap Bilgileri</a>
-                            <!-- text-->
-                            <a href="javascript:void(0)" class="dropdown-item"><i class="icon-people"></i> Tüm Hesaplar</a>
-                            <!-- text-->
+                            {% if app.user.roles[0]=='ROLE_ADMIN' %}
+                            <a href="{{ path('panel_hesaplar_homepage') }}" class="dropdown-item"><i class="icon-people"></i> Tüm Hesaplar </a>
+                            {% endif %}
                             <div class="dropdown-divider"></div>
-                            <!-- text-->
+
                             <a href="{{ path('fos_user_security_logout') }}" class="dropdown-item"><i class="fa fa-power-off"></i> Çıkış Yap</a>
                             <!-- text-->
                         </div>
@@ -350,18 +350,6 @@
 
 
 
-<div class="toast" data-autohide="true" data-delay="4000" style="position: fixed; top: 80px; right: 10px; z-index: 999999999999; width: 250px; display: none;">
-    <div class="toast-header">
-        <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect fill="" id="renk" width="100%" height="100%"></rect></svg>
-        <strong class="mr-auto" id="title"></strong>
-        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="toast-body" id="body">
-
-    </div>
-</div>
 <div class="blockpage" style=" width: 100%; height: 100%; position: fixed; z-index: 99999999; display: none; top:0;left: 0;"></div>
 
 {% block javascripts %}
@@ -375,6 +363,7 @@
 
 
 <script>
+
     $().ready(function () {
         $(":input").inputmask();
     });
@@ -385,18 +374,24 @@
             $('.blockpage').css('display','none');
         }
     }
-    function Alert(renk,body) {
-        $('.toast').css('display','block');
-        if (renk=='success') { $('.toast #renk').attr('fill','#00c292'); $('.toast').css('border', '2px solid #00c292'); $('.toast #title').html('Başarılı');}
-        else if (renk=='warning') { $('.toast #renk').attr('fill','#fec107'); $('.toast').css('border', '2px solid #fec107'); $('.toast #title').html('Uyarı');}
-        else if (renk=='danger') { $('.toast #renk').attr('fill','#e46a76'); $('.toast').css('border', '2px solid #e46a76'); $('.toast #title').html('Hata');}
-        else if (renk=='info') { $('.toast #renk').attr('fill','#03a9f3'); $('.toast').css('border', '2px solid ##03a9f3'); $('.toast #title').html('Bilgi');}
 
-        $('.toast #body').html(body);
-        $('.toast').toast('show');
-        setTimeout(function () {
-            $('.toast').css('display','none');
-        },4500);
+    function Bildirim(tip,text) {
+        var baslik = '';
+
+        if (tip == 'success'){ baslik = 'Başarılı'; }
+        else if (tip == 'warning'){ baslik = 'Uyarı'; }
+        else if (tip == 'error'){ baslik = 'Hata'; }
+        else if (tip == 'info'){ baslik = 'Bilgi'; }
+
+        $.toast({
+            heading: baslik,
+            text: text,
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: tip,
+            hideAfter: 3000,
+            stack: 6
+        });
     }
 
 

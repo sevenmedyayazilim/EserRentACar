@@ -1,0 +1,23 @@
+panel_hesaplar_homepage:
+  path:     /
+  defaults: { _controller: PanelBundle:Hesaplar:index }
+
+panel_hesaplar_getir:
+  path:     /getir
+  defaults: { _controller: PanelBundle:Hesaplar:getir }
+
+panel_hesaplar_ekle:
+  path:     /ekle
+  defaults: { _controller: PanelBundle:Hesaplar:ekle }
+
+panel_hesaplar_duzenleAc:
+  path:     /duzenleAc
+  defaults: { _controller: PanelBundle:Hesaplar:duzenleAc }
+
+panel_hesaplar_duzenle:
+  path:     /duzenle
+  defaults: { _controller: PanelBundle:Hesaplar:duzenle }
+
+panel_hesaplar_sil:
+  path:     /sil
+  defaults: { _controller: PanelBundle:Hesaplar:sil }
