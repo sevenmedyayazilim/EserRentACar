@@ -199,7 +199,6 @@
                             </span>
                         </a>
                     </li>
-
                     <li>
                         <a class="waves-effect waves-dark" href="{{ path('panel_ofis_homepage') }}" aria-expanded="false">
                             <i class="icon-briefcase"></i>
@@ -208,9 +207,17 @@
                             </span>
                         </a>
                     </li>
+                    <li>
+                        <a class="waves-effect waves-dark" href="{{ path('panel_aracgrup_homepage') }}" aria-expanded="false">
+                            <i class="ti-direction-alt"></i>
+                            <span class="hide-menu">Araç Grupları
+                                {#<span class="badge badge-pill badge-cyan ml-auto">4</span>#}
+                            </span>
+                        </a>
+                    </li>
 
                     <li>
-                        <a class="waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                        <a class="waves-effect waves-dark" href="{{ path('panel_arac_homepage') }}" aria-expanded="false">
                             <i class="ti-car"></i>
                             <span class="hide-menu">Araçlar
                                 {#<span class="badge badge-pill badge-cyan ml-auto">4</span>#}
@@ -350,7 +357,7 @@
 
 
 
-<div class="blockpage" style=" width: 100%; height: 100%; position: fixed; z-index: 99999999; display: none; top:0;left: 0;"></div>
+<div class="blockpage" style=" cursor: progress; width: 100%; height: 100%; position: fixed; z-index: 99999999; display: none; top:0;left: 0;"></div>
 
 {% block javascripts %}
     {{ encore_entry_script_tags('panel') }}
@@ -363,10 +370,36 @@
 
 
 <script>
-
+    Dropzone.autoDiscover = false;
     $().ready(function () {
+
+        $('.image-popup-vertical-fit').magnificPopup({
+            type: 'image',
+            closeOnContentClick: true,
+            mainClass: 'mfp-img-mobile',
+            image: {
+                verticalFit: true
+            }
+
+        });
+
         $(":input").inputmask();
+        $('.numeric').numeric();
+        $("select").select2({
+            language: "tr"
+        });
+        $('.priceFormat').priceFormat({
+            prefix: '',
+            thousandsSeparator: ''
+        });
+        $('.priceFormat').blur(function () {
+            if (this.value=='0.00'){
+                $(this).val('');
+            }
+        });
+        $('.swal2-content .select2-container').remove();
     });
+
     function BlokPage(tip) {
         if(tip=='enabled'){
             $('.blockpage').css('display','block');
@@ -417,6 +450,30 @@
             return true;
         }
     }
+
+    harfleriBuyut = function (obj) {
+        var deger = obj.value;
+        var yeniDeger = '';
+        deger = deger.split(' ');
+        for (var i = 0; i < deger.length; i++) {
+            if (i == (deger.length - 1)) {
+                yeniDeger += deger[i].substring(0, 1).toUpperCase() + deger[i].substring(1, deger[i].length);
+                obj.value = yeniDeger;
+            } else {
+                yeniDeger += deger[i].substring(0, 1).toUpperCase() + deger[i].substring(1, deger[i].length) + ' ';
+                obj.value = yeniDeger;
+            }
+        }
+    }
+    hepsiBuyuk = function (obj) {
+        var deger = obj.value;
+        obj.value = obj.value.replace(/i/g, 'İ').replace(/ı/g, 'I').toUpperCase();
+    }
+    hepsiKucuk = function (obj) {
+        var deger = obj.value;
+        obj.value = obj.value.replace(/İ/g, 'i').replace(/I/g, 'ı').toLowerCase();
+    }
+
 </script>
 </body>
 

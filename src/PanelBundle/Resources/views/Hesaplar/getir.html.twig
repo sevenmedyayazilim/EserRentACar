@@ -31,7 +31,7 @@
                            <i class="ti-more-alt"></i>
                         </button>
                         <div class="dropdown-menu" x-placement="bottom-start">
-                            <a class="dropdown-item" href="javascript:void(0)" onclick="hesapDuzenleAc({{ hesap.id }});" data-toggle="modal" data-target="#ofisDuzenle"><i class="ti-lock"></i> Şifre Değiştir</a>
+                            <a class="dropdown-item" href="javascript:void(0)" onclick="$('#sifreDegistir #kaydet').attr('onclick','sifreDegistir({{ hesap.id }});')" data-toggle="modal" data-target="#sifreDegistir"><i class="ti-lock"></i> Şifre Değiştir</a>
                             <a class="dropdown-item" href="javascript:void(0)" onclick="hesapDuzenleAc({{ hesap.id }});" data-toggle="modal" data-target="#hesapDuzenle"><i class="ti-pencil-alt"></i> Düzenle</a>
                             <a class="dropdown-item" href="javascript:void(0)" onclick="hesapSil({{ hesap.id }});"><i class="ti-close"></i> Sil</a>
                         </div>

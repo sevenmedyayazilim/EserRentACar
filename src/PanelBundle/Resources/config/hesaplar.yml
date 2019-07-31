@@ -21,3 +21,7 @@ panel_hesaplar_duzenle:
 panel_hesaplar_sil:
   path:     /sil
   defaults: { _controller: PanelBundle:Hesaplar:sil }
+
+panel_hesaplar_sifreDegistir:
+  path:     /sifreDegistir
+  defaults: { _controller: PanelBundle:Hesaplar:sifreDegistir }

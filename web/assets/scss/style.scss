@@ -24,7 +24,11 @@ File: scss
 @import "~bootstrap/scss/bootstrap";
 @import "~datatables.net-bs4/css/dataTables.bootstrap4.min.css";
 @import "../../../toast-master/css/jquery.toast.css";
+@import "../../../wizard/steps.css";
 @import "~sweetalert2/src/sweetalert2.scss";
+@import "~select2/dist/css/select2.min.css";
+@import "~dropzone/dist/min/dropzone.min.css";
+@import "~magnific-popup/dist/magnific-popup.css";
 
 //This is for the icons
 @import '../icons/font-awesome/css/fontawesome-all.css';

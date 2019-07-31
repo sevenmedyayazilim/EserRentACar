@@ -5,12 +5,12 @@ namespace PanelBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Ofis
+ * AracGrup
  *
- * @ORM\Table(name="ofis")
- * @ORM\Entity(repositoryClass="PanelBundle\Repository\OfisRepository")
+ * @ORM\Table(name="arac_grup")
+ * @ORM\Entity(repositoryClass="PanelBundle\Repository\AracGrupRepository")
  */
-class Ofis
+class AracGrup
 {
     /**
      * @var int
@@ -29,30 +29,17 @@ class Ofis
     private $adi;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="telefon", type="string", length=255)
-     */
-    private $telefon;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="adres", type="text")
-     */
-    private $adres;
-
-    /**
-     * @ORM\OneToMany(targetEntity="\PanelBundle\Entity\Arac", mappedBy="ofis")
+     * @ORM\OneToMany(targetEntity="\PanelBundle\Entity\Arac", mappedBy="aracGrup")
      */
     private $arac;
+
 
     /**
      * Get id
      *
      * @return int
      */
-    public function getId()
+    public function getid()
     {
         return $this->id;
     }
@@ -62,7 +49,7 @@ class Ofis
      *
      * @param string $adi
      *
-     * @return Ofis
+     * @return AracGrup
      */
     public function setAdi($adi)
     {
@@ -82,58 +69,10 @@ class Ofis
     }
 
     /**
-     * Set telefon
-     *
-     * @param string $telefon
-     *
-     * @return Ofis
-     */
-    public function setTelefon($telefon)
-    {
-        $this->telefon = $telefon;
-
-        return $this;
-    }
-
-    /**
-     * Get telefon
-     *
-     * @return string
-     */
-    public function getTelefon()
-    {
-        return $this->telefon;
-    }
-
-    /**
-     * Set adres
-     *
-     * @param string $adres
-     *
-     * @return Ofis
-     */
-    public function setAdres($adres)
-    {
-        $this->adres = $adres;
-
-        return $this;
-    }
-
-    /**
-     * Get adres
-     *
-     * @return string
-     */
-    public function getAdres()
-    {
-        return $this->adres;
-    }
-
-    /**
      * Add arac
      *
      * @param \PanelBundle\Entity\Arac $arac
-     * @return Ofis
+     * @return AracGrup
      */
     public function addArac(\PanelBundle\Entity\Arac $arac)
     {

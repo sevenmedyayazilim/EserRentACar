@@ -24,16 +24,44 @@ class Arac
     /**
      * @var string
      *
-     * @ORM\Column(name="adi", type="string", length=255)
+     * @ORM\Column(name="plaka", type="string", length=255)
      */
-    private $adi;
+    private $plaka;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="kisa_Aciklama", type="text", nullable=true)
+     * @ORM\Column(name="marka", type="string", length=255)
      */
-    private $kisaAciklama;
+    private $marka;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="model", type="string", length=255)
+     */
+    private $model;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="motorHacmi", type="string", length=255)
+     */
+    private $motorHacmi;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="paket", type="string", length=255, nullable=true)
+     */
+    private $paket;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="yil", type="string", length=255, nullable=true)
+     */
+    private $yil;
 
     /**
      * @var float
@@ -148,13 +176,6 @@ class Arac
     private $yasSiniri;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="yasSiniriTip", type="integer")
-     */
-    private $yasSiniriTip;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="yakitTipi", type="string", length=255)
@@ -204,13 +225,6 @@ class Arac
     private $ehliyetYasi;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="ehliyetYasiTip", type="integer")
-     */
-    private $ehliyetYasiTip;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="renk", type="string", length=255)
@@ -218,10 +232,42 @@ class Arac
     private $renk;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="kasaTipi", type="string", length=255)
+     */
+    private $kasaTipi;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="klima", type="string", length=255)
+     */
+    private $klima;
+
+    /**
      * @ORM\ManyToOne(targetEntity="\PanelBundle\Entity\Ofis", inversedBy="arac")
      * @ORM\JoinColumn(name="ofis_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $ofis;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\PanelBundle\Entity\AracGrup", inversedBy="arac")
+     * @ORM\JoinColumn(name="aracgrup_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $aracGrup;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="durum", type="integer")
+     */
+    private $durum;
+
+    /**
+     * @ORM\OneToMany(targetEntity="\PanelBundle\Entity\Resim", mappedBy="arac")
+     */
+    private $resim;
 
 
     /**
@@ -235,51 +281,147 @@ class Arac
     }
 
     /**
-     * Set adi
+     * Set plaka
      *
-     * @param string $adi
+     * @param string $plaka
      *
      * @return Arac
      */
-    public function setAdi($adi)
+    public function setPlaka($plaka)
     {
-        $this->adi = $adi;
+        $this->plaka = $plaka;
 
         return $this;
     }
 
     /**
-     * Get adi
+     * Get plaka
      *
      * @return string
      */
-    public function getAdi()
+    public function getPlaka()
     {
-        return $this->adi;
+        return $this->plaka;
     }
 
     /**
-     * Set kisaAciklama
+     * Set marka
      *
-     * @param string $kisaAciklama
+     * @param string $marka
      *
      * @return Arac
      */
-    public function setKisaAciklama($kisaAciklama)
+    public function setMarka($marka)
     {
-        $this->kisaAciklama = $kisaAciklama;
+        $this->marka = $marka;
 
         return $this;
     }
 
     /**
-     * Get kisaAciklama
+     * Get marka
      *
      * @return string
      */
-    public function getKisaAciklama()
+    public function getMarka()
     {
-        return $this->kisaAciklama;
+        return $this->marka;
+    }
+
+    /**
+     * Set model
+     *
+     * @param string $model
+     *
+     * @return Arac
+     */
+    public function setModel($model)
+    {
+        $this->model = $model;
+
+        return $this;
+    }
+
+    /**
+     * Get model
+     *
+     * @return string
+     */
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    /**
+     * Set motorHacmi
+     *
+     * @param string $motorHacmi
+     *
+     * @return Arac
+     */
+    public function setMotorHacmi($motorHacmi)
+    {
+        $this->motorHacmi = $motorHacmi;
+
+        return $this;
+    }
+
+    /**
+     * Get motorHacmi
+     *
+     * @return string
+     */
+    public function getMotorHacmi()
+    {
+        return $this->motorHacmi;
+    }
+
+    /**
+     * Set paket
+     *
+     * @param string $paket
+     *
+     * @return Arac
+     */
+    public function setPaket($paket)
+    {
+        $this->paket = $paket;
+
+        return $this;
+    }
+
+    /**
+     * Get paket
+     *
+     * @return string
+     */
+    public function getPaket()
+    {
+        return $this->paket;
+    }
+
+    /**
+     * Set yil
+     *
+     * @param string $yil
+     *
+     * @return Arac
+     */
+    public function setYil($yil)
+    {
+        $this->yil = $yil;
+
+        return $this;
+    }
+
+    /**
+     * Get yil
+     *
+     * @return string
+     */
+    public function getYil()
+    {
+        return $this->yil;
     }
 
     /**
@@ -667,30 +809,6 @@ class Arac
     }
 
     /**
-     * Set yasSiniriTip
-     *
-     * @param integer $yasSiniriTip
-     *
-     * @return Arac
-     */
-    public function setYasSiniriTip($yasSiniriTip)
-    {
-        $this->yasSiniriTip = $yasSiniriTip;
-
-        return $this;
-    }
-
-    /**
-     * Get yasSiniriTip
-     *
-     * @return int
-     */
-    public function getYasSiniriTip()
-    {
-        return $this->yasSiniriTip;
-    }
-
-    /**
      * Set yakitTipi
      *
      * @param string $yakitTipi
@@ -859,30 +977,6 @@ class Arac
     }
 
     /**
-     * Set ehliyetYasiTip
-     *
-     * @param integer $ehliyetYasiTip
-     *
-     * @return Arac
-     */
-    public function setEhliyetYasiTip($ehliyetYasiTip)
-    {
-        $this->ehliyetYasiTip = $ehliyetYasiTip;
-
-        return $this;
-    }
-
-    /**
-     * Get ehliyetYasiTip
-     *
-     * @return int
-     */
-    public function getEhliyetYasiTip()
-    {
-        return $this->ehliyetYasiTip;
-    }
-
-    /**
      * Set renk
      *
      * @param string $renk
@@ -907,6 +1001,54 @@ class Arac
     }
 
     /**
+     * Set kasaTipi
+     *
+     * @param string $kasaTipi
+     *
+     * @return Arac
+     */
+    public function setKasaTipi($kasaTipi)
+    {
+        $this->kasaTipi = $kasaTipi;
+
+        return $this;
+    }
+
+    /**
+     * Get kasaTipi
+     *
+     * @return string
+     */
+    public function getKasaTipi()
+    {
+        return $this->kasaTipi;
+    }
+
+    /**
+     * Set klima
+     *
+     * @param string $klima
+     *
+     * @return Arac
+     */
+    public function setKlima($klima)
+    {
+        $this->klima = $klima;
+
+        return $this;
+    }
+
+    /**
+     * Get klima
+     *
+     * @return string
+     */
+    public function getKlima()
+    {
+        return $this->klima;
+    }
+
+    /**
      * Set ofis
      *
      * @param \PanelBundle\Entity\Ofis $ofis
@@ -924,9 +1066,90 @@ class Arac
      *
      * @return Arac
      */
-    public function getArac()
+    public function getOfis()
     {
         return $this->ofis;
+    }
+
+    /**
+     * Set aracGrup
+     *
+     * @param \PanelBundle\Entity\AracGrup $aracGrup
+     * @return Arac
+     */
+    public function setAracGrup(\PanelBundle\Entity\AracGrup $aracGrup = null)
+    {
+        $this->aracGrup = $aracGrup;
+
+        return $this;
+    }
+
+    /**
+     * Get aracGrup
+     *
+     * @return Arac
+     */
+    public function getAracGrup()
+    {
+        return $this->aracGrup;
+    }
+
+
+    /**
+     * Set durum
+     *
+     * @param integer $durum
+     *
+     * @return Arac
+     */
+    public function setDurum($durum)
+    {
+        $this->durum = $durum;
+
+        return $this;
+    }
+
+    /**
+     * Get durum
+     *
+     * @return int
+     */
+    public function getDurum()
+    {
+        return $this->durum;
+    }
+
+    /**
+     * Add resim
+     *
+     * @param \PanelBundle\Entity\Resim $resim
+     * @return Arac
+     */
+    public function addResim(\PanelBundle\Entity\Resim $resim)
+    {
+        $this->resim[] = $resim;
+
+        return $this;
+    }
+
+    /**
+     * Remove resim
+     *
+     * @param \PanelBundle\Entity\Resim $resim
+     */
+    public function removeResim(\PanelBundle\Entity\Resim $resim)
+    {
+        $this->resim->removeElement($resim);
+    }
+
+    /**
+     * Get resim
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getResim()
+    {
+        return $this->resim;
     }
 }
 

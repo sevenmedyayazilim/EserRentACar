@@ -1,0 +1,23 @@
+panel_aracgrup_homepage:
+  path:     /
+  defaults: { _controller: PanelBundle:AracGrup:index }
+
+panel_aracgrup_getir:
+  path:     /getir
+  defaults: { _controller: PanelBundle:AracGrup:getir }
+
+panel_aracgrup_ekle:
+  path:     /ekle
+  defaults: { _controller: PanelBundle:AracGrup:ekle }
+
+panel_aracgrup_duzenleAc:
+  path:     /duzenleAc
+  defaults: { _controller: PanelBundle:AracGrup:duzenleAc }
+
+panel_aracgrup_duzenle:
+  path:     /duzenle
+  defaults: { _controller: PanelBundle:AracGrup:duzenle }
+
+panel_aracgrup_sil:
+  path:     /sil
+  defaults: { _controller: PanelBundle:AracGrup:sil }

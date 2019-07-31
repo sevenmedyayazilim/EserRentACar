@@ -1,0 +1,39 @@
+
+<table id="hesaplar" class="table display table-bordered table-striped no-wrap">
+    <thead>
+    <tr>
+        <th width="5%" >S.No</th>
+        <th>Ofis</th>
+        <th>Grup</th>
+        <th>Adı</th>
+        <th width="10%">Liste Fiyatı</th>
+        <th width="10%">Online <br> Rezervasyon <br> Fiyatı</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% set sn = 1 %}
+        {% for arac in araclar %}
+
+            <tr onclick="window.location.href='{{ path('panel_arac_duzenle',{'id':arac.id}) }}'" style="cursor:pointer;">
+                <td class="text-center">{{ sn }}</td>
+                <td>{{ arac.ofis|default('') }}</td>
+                <td>{{ arac.grup|default('') }}</td>
+                <td><b>{{ arac.marka }} {{ arac.model }} {{ arac.motorHacmi }} {{ arac.paket|default('') }} {{ arac.yil|default('') }}<br>
+                    <span class="text-primary">{{ arac.plaka }}</span>
+                    </b></td>
+                <td>{{ arac.listeFiyat|number_format(2,',','.') }} ₺</td>
+                <td>
+                    {% if arac.onlineRezervasyonFiyat|default(0) == 0 %}
+                            <span class="text-danger">Belirlenmemiş.</span>
+                     {% else %}
+                         {{ arac.onlineRezervasyonFiyat|number_format(2,',','.') }} ₺
+                    {% endif %}
+
+                </td>
+
+            </tr>
+            {% set sn = sn+1 %}
+        {% endfor %}
+    {# <tr><td colspan="5" class="text-danger" style="font-size: 16px;"><img src="{{ asset('assets/loading.svg') }}" width="45"> Veriler Yükleniyor...</td></tr>#}
+    </tbody>
+</table>

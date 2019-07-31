@@ -2,20 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20eff917-94ea-47a5-b739-311271d16c91" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/mailBase.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Controller/HesaplarController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/config/hesaplar.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/duzenleAc.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/getir.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/yenikullanici_mail.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Controller/AracController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Controller/AracGrupController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Controller/BaseController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/config/arac.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/config/aracgrup.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Arac/devam.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Arac/duzenle.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Arac/ekle.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Arac/getir.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Arac/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Arac/resim_getir.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/AracGrup/duzenleAc.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/AracGrup/getir.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/AracGrup/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/sifreDegistir_mail.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PanelBundle/Twig/PanelExtension.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/timthumb.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/panelBase.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/panelBase.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/services.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/services.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PanelBundle/Controller/HesaplarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Controller/HesaplarController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PanelBundle/Entity/Arac.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Entity/Arac.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PanelBundle/Entity/Ofis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Entity/Ofis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PanelBundle/Entity/Resim.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Entity/Resim.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PanelBundle/Resources/config/hesaplar.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/config/hesaplar.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PanelBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesap/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesap/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/duzenleAc.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/duzenleAc.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/getir.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/getir.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/duzenleAc.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/duzenleAc.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/scss/core/spinner.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/scss/core/spinner.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/scss/custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/scss/custom.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/assets/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/scss/style.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/assets/webpack/panel.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/webpack/panel.js" afterDir="false" />
     </list>
@@ -31,147 +52,8 @@
       <executable />
     </execution>
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/panelBase.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="368" column="4" selection-start-line="368" selection-start-column="4" selection-end-line="368" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/config/hesaplar.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PanelBundle/Controller/HesaplarController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="787">
-              <caret line="161" column="22" selection-start-line="161" selection-start-column="22" selection-end-line="161" selection-end-column="22" />
-              <folding>
-                <element signature="e#338#371#1#PHP" expanded="true" />
-                <element signature="e#790#823#0#PHP" expanded="true" />
-                <element signature="e#2808#2854#0#PHP" expanded="true" />
-                <element signature="e#3564#3601#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
-              <folding>
-                <element signature="e#5815#5833#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/getir.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="35" column="96" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="96" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>Medium model</find>
-      <find>text-right</find>
-      <find>Phone</find>
-      <find>inputmask</find>
-      <find>myTable</find>
-      <find>config-table</find>
-      <find>dataTable.fnDestroy();</find>
-      <find>gelenveriler</find>
-      <find>ofisDuzenlaAc</find>
-      <find>modalGelen</find>
-      <find>ofisDuzenle</find>
-      <find>adi</find>
-      <find>Hesap</find>
-      <find>Ofis</find>
-      <find>sifreBilgileri</find>
-      <find>Alert</find>
-      <find>Tüm</find>
-      <find>Tü</find>
-      <find>hesapEkle</find>
-      <find>eposta</find>
-      <find>|| (adi=='')</find>
-      <find>Bildirim('danger',</find>
-      <find>Poppins</find>
-      <find>hesapbilgileri</find>
-      <find>ofis</find>
-      <find>ekle</find>
-      <find>Ekle</find>
-      <find>Confirm</find>
-      <find>sa-confirm</find>
-      <find>swal</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>Bildirim('error',</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$/src/PanelBundle/Resources</dir>
-      <dir>$PROJECT_DIR$/web/assets/scss</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/test.html" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/web/assets/scss/custom.scss" />
-        <option value="$PROJECT_DIR$/web/assets/scss/core/header.scss" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Entity/Ofis.php" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Entity/Arac.php" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/index.html.twig" />
-        <option value="$PROJECT_DIR$/web/assets/datatablesTr.json" />
-        <option value="$PROJECT_DIR$/../../Temalar/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/material/ui-toasts.html" />
-        <option value="$PROJECT_DIR$/web/assets/js/custom.js" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/duzenleAc.html.twig" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/config/ofis.yml" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/getir.html.twig" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/config/hesap.yml" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Controller/HesapController.php" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesap/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Controller/OfisController.php" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/web/mail.html" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/mail.html.twig" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/yenikullanici_mail.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/mailBase.html.twig" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/duzenleAc.html.twig" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/getir.html.twig" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/config/hesaplar.yml" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Controller/HesaplarController.php" />
-        <option value="$PROJECT_DIR$/../../Temalar/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/material/ui-sweetalert.html" />
-        <option value="$PROJECT_DIR$/web/assets/scss/style.scss" />
-        <option value="$PROJECT_DIR$/web/assets/webpack/panel.js" />
-        <option value="$PROJECT_DIR$/app/Resources/views/panelBase.html.twig" />
-        <option value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/index.html.twig" />
-      </list>
-    </option>
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -225,153 +107,14 @@
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
-  </component>
+  <component name="ProjectId" id="1OlnklrEVCO2sLopHayMn99F97H" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="PanelBundle" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="PanelBundle" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Controller" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="PanelBundle" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Entity" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="PanelBundle" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="PanelBundle" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="PanelBundle" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="PanelBundle" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Hesap" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="PanelBundle" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Hesaplar" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="PanelBundle" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Ofis" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="web" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="web" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EserRentACar" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="web" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="webpack" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane" />
-    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/PanelBundle/Twig" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -384,15 +127,19 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="configurable.stylesheets.stylelint" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/PanelBundle/Resources/views/Arac/devam.html.twig" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar" />
+      <recent name="$PROJECT_DIR$/src/PanelBundle/Twig" />
+      <recent name="$PROJECT_DIR$/web" />
+      <recent name="$PROJECT_DIR$/src/PanelBundle/Resources/views/Arac" />
+      <recent name="$PROJECT_DIR$/src/PanelBundle/Resources/views" />
       <recent name="$PROJECT_DIR$/src/PanelBundle/Controller" />
-      <recent name="$PROJECT_DIR$/src/PanelBundle/Resources/config" />
-      <recent name="$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesap" />
-      <recent name="$PROJECT_DIR$/web/assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -423,409 +170,32 @@
       <workItem from="1563876072598" duration="241000" />
       <workItem from="1563877276329" duration="10941000" />
       <workItem from="1563949512345" duration="24969000" />
-      <workItem from="1564037700663" duration="11235000" />
+      <workItem from="1564037700663" duration="11454000" />
+      <workItem from="1564054890257" duration="9523000" />
+      <workItem from="1564122990218" duration="841000" />
+      <workItem from="1564124054306" duration="20408000" />
+      <workItem from="1564208235176" duration="6253000" />
+      <workItem from="1564381355356" duration="18593000" />
+      <workItem from="1564471516183" duration="17538000" />
+      <workItem from="1564497383601" duration="121000" />
+      <workItem from="1564560446070" duration="96000" />
+      <workItem from="1564561206609" duration="21000" />
+      <workItem from="1564561267727" duration="8037000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49139000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16453674" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.26458752" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="File Transfer" order="12" weight="0.32997987" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test.html" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/scss/components/custom_style.scss" />
-    <entry file="file://$PROJECT_DIR$/web/assets/scss/custom.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/scss/core/header.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Temalar/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/material/index2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="84" column="23" lean-forward="true" selection-start-line="84" selection-start-column="23" selection-end-line="88" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Entity/Yetki.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="247" column="5" lean-forward="true" selection-start-line="226" selection-start-column="2" selection-end-line="247" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="717">
-          <caret line="176" column="5" lean-forward="true" selection-start-line="144" selection-end-line="176" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Entity/Ofis.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="155" column="7" lean-forward="true" selection-start-line="155" selection-start-column="7" selection-end-line="155" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Entity/Arac.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="919" column="5" lean-forward="true" selection-start-line="919" selection-start-column="5" selection-end-line="919" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/datatablesTr.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/loading.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Temalar/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/material/ui-modals.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="1020" column="67" lean-forward="true" selection-start-line="1020" selection-start-column="67" selection-end-line="1020" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Temalar/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/material/dist/js/pages/mask.init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Temalar/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/material/form-mask.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="669">
-          <caret line="911" column="49" selection-start-line="911" selection-start-column="40" selection-end-line="911" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Temalar/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/material/ui-toasts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="851" column="6" selection-start-line="851" selection-start-column="6" selection-end-line="851" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/js/custom.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/js/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="787">
-          <caret line="204" selection-start-line="204" selection-end-line="204" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Temalar/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/material/table-data-table.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1730">
-          <caret line="2658" column="14" selection-start-line="2658" selection-start-column="14" selection-end-line="2658" selection-end-column="14" />
-          <folding>
-            <element signature="n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/duzenleAc.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/js/src/alert.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="45" column="6" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/config/ofis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/config/hesap.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesap/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="176" column="30" selection-start-line="176" selection-start-column="16" selection-end-line="176" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/scss/core/theme-settings.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-729" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/scss/core/core.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="21" lean-forward="true" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/scss/variable.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="121" column="50" lean-forward="true" selection-start-line="121" selection-start-column="29" selection-end-line="121" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/mail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="26" lean-forward="true" selection-end-line="85" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#1598#1604#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/yenikullanici_mail.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding>
-            <element signature="e#12#30#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/mailBase.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/duzenleAc.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="32" column="10" lean-forward="true" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Controller/HesapController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="29" column="78" lean-forward="true" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="78" />
-          <folding>
-            <element signature="e#42#70#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/getir.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Ofis/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="88" column="4" selection-start-line="88" selection-start-column="4" selection-end-line="105" selection-end-column="9" />
-          <folding>
-            <element signature="e#4153#4167#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/getir.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="35" column="96" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Controller/OfisController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="81" column="2" lean-forward="true" selection-start-line="81" selection-start-column="2" selection-end-line="93" selection-end-column="5" />
-          <folding>
-            <element signature="e#42#70#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/config/hesaplar.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Temalar/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/assets/node_modules/sweetalert2/sweet-alert.init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="45" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="7" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/panelBase.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="368" column="4" selection-start-line="368" selection-start-column="4" selection-end-line="368" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Temalar/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/material/ui-sweetalert.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="861" column="65" lean-forward="true" selection-start-line="861" selection-start-column="65" selection-end-line="861" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/scss/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/webpack/panel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Controller/HesaplarController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="787">
-          <caret line="161" column="22" selection-start-line="161" selection-start-column="22" selection-end-line="161" selection-end-column="22" />
-          <folding>
-            <element signature="e#338#371#1#PHP" expanded="true" />
-            <element signature="e#790#823#0#PHP" expanded="true" />
-            <element signature="e#2808#2854#0#PHP" expanded="true" />
-            <element signature="e#3564#3601#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelBundle/Resources/views/Hesaplar/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
-          <folding>
-            <element signature="e#5815#5833#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

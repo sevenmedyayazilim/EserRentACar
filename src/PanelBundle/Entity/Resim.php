@@ -38,13 +38,6 @@ class Resim
     /**
      * @var int
      *
-     * @ORM\Column(name="dilgrup", type="integer")
-     */
-    private $dilgrup;
-
-    /**
-     * @var int
-     *
      * @ORM\Column(name="sunucu", type="integer", nullable=true)
      */
     private $sunucu;
@@ -68,6 +61,12 @@ class Resim
      * @ORM\JoinColumn(name="sayfa_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $sayfa;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\PanelBundle\Entity\Arac", inversedBy="resim")
+     * @ORM\JoinColumn(name="arac_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $arac;
 
     /**
      * Get id
@@ -220,6 +219,29 @@ class Resim
     public function getSayfa()
     {
         return $this->sayfa;
+    }
+
+    /**
+     * Set arac
+     *
+     * @param \PanelBundle\Entity\Arac $arac
+     * @return Resim
+     */
+    public function setArac(\PanelBundle\Entity\Arac $arac = null)
+    {
+        $this->arac = $arac;
+
+        return $this;
+    }
+
+    /**
+     * Get arac
+     *
+     * @return Resim
+     */
+    public function getArac()
+    {
+        return $this->arac;
     }
 
 }

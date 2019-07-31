@@ -13,3 +13,11 @@ panel_hesap:
 panel_hesaplar:
     resource: "@PanelBundle/Resources/config/hesaplar.yml"
     prefix:   /hesaplar/
+
+panel_aracgrup:
+    resource: "@PanelBundle/Resources/config/aracgrup.yml"
+    prefix:   /arac_grup/
+
+panel_arac:
+    resource: "@PanelBundle/Resources/config/arac.yml"
+    prefix:   /arac/

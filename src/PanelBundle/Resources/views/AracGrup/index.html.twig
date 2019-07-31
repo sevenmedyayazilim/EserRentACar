@@ -1,0 +1,225 @@
+{% extends 'panelBase.html.twig' %}
+{% block sayfaBaslik %} Araç Grupları {% endblock %}
+{% block sayfaUst %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('panel_homepage') }}">Anasayfa</a></li>
+        <li class="breadcrumb-item active">Araç Grupları</li>
+    </ol>
+
+
+    <button type="button" data-toggle="modal" data-target="#aracGrupEkle" class="btn btn-success waves-effect d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Araç Grubu Ekle</button>
+
+    <div id="aracGrupEkle" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Araç Grubu Ekle</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-material text-left aracGrupEkle">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Grup Adı : </label>
+                            <div class="col-lg-9 col-sm-12">
+                                <input type="text" class="form-control" id="adi" onblur="harfleriBuyut(this)">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success waves-effect" id="kaydet" onclick="aracGrupEkle();"><i class="fa fa-save"></i> Kaydet</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <div id="aracGrupDuzenle" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Araç Grubu Düzenle</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body text-left" id="modalGelen">
+                    <span style="font-size: 16px;" class="text-danger"><img src="{{ asset('assets/loading.svg') }}" width="45"> Veriler Yükleniyor...</span>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success waves-effect" id="kaydet" onclick=""><i class="fa fa-save"></i> Kaydet</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive" id="gelenveriler">
+                        <span style="font-size: 16px;" class="text-danger"><img src="{{ asset('assets/loading.svg') }}" width="45"> Veriler Yükleniyor...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+{% block javascript %}
+<script>
+function aracGrupSil(id){
+
+                swal.fire({
+                    title: 'Silinsin mi?',
+                    text: "Araç grubu ve bu gruba bağlı tüm araçlar silinecek.",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#00c292',
+                    cancelButtonColor: '#e46a76',
+                    confirmButtonText: 'Sil',
+                    cancelButtonText: 'İptal'
+                }).then((result) => {
+                    if (result.value) {
+                            BlokPage('enabled');
+                            var url = '{{ path('panel_aracgrup_sil') }}';
+                            var xhr = new XMLHttpRequest();
+                            var fd = new FormData();
+                            xhr.open("POST", url, true);
+                            xhr.onreadystatechange = function () {
+                                if(xhr.readyState === 4 && xhr.status === 200) {
+                                     BlokPage('disabled');
+                                     Bildirim('success','Araç Grubu silindi.');
+                                     aracGrupGetir();
+                                }
+                            };
+
+                            fd.append("id", id);
+                            xhr.send(fd);
+                    }
+                })
+
+}
+function aracGrupDuzenle(id){
+
+    var adi = $('.aracGrupDuzenle #adi').val();
+
+    if((adi=='')){
+        Bildirim('warning','Lütfen zorunlu alanları doldurunuz.');
+        return false;
+    }
+
+
+
+    BlokPage('enabled');
+    $('#aracGrupDuzenle #kaydet').html('<i class="fa fa-cog fa-spin"></i> Kaydediliyor..');
+
+    var url = '{{ path('panel_aracgrup_duzenle') }}';
+        var xhr = new XMLHttpRequest();
+        var fd = new FormData();
+        xhr.open("POST", url, true);
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === 4 && xhr.status === 200) {
+
+                Bildirim('success','Araç Grubu kaydedildi.');
+                BlokPage('disabled');
+                $('#aracGrupDuzenle').modal('toggle');
+                $('#aracGrupDuzenle #kaydet').html('<i class="fa fa-save"></i> Kaydet');
+                aracGrupGetir();
+
+            }
+        };
+
+        fd.append("adi", adi);
+        fd.append("id", id);
+
+        xhr.send(fd);
+
+    }
+    function aracGrupDuzenleAc(id){
+
+    var url = '{{ path('panel_aracgrup_duzenleAc') }}';
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            xhr.open("POST", url, true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+
+                    $('#aracGrupDuzenle #modalGelen').html(xhr.responseText);
+                    $('#aracGrupDuzenle #kaydet').attr('onclick','aracGrupDuzenle('+id+');');
+                    $(":input").inputmask();
+                }
+            };
+
+            fd.append("id", id);
+            xhr.send(fd);
+
+        }
+    function aracGrupEkle(){
+    var adi = $('.aracGrupEkle #adi').val();
+
+
+    if((adi=='')){
+        Bildirim('warning','Lütfen zorunlu alanları doldurunuz.');
+        return false;
+    }
+
+
+    BlokPage('enabled');
+    $('#aracGrupEkle #kaydet').html('<i class="fa fa-cog fa-spin"></i> Kaydediliyor..');
+
+        var url = '{{ path('panel_aracgrup_ekle') }}';
+        var xhr = new XMLHttpRequest();
+        var fd = new FormData();
+        xhr.open("POST", url, true);
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === 4 && xhr.status === 200) {
+
+                Bildirim('success','Araç grubu eklendi.');
+                BlokPage('disabled');
+                $('#aracGrupEkle').modal('toggle');
+                $('#aracGrupEkle #kaydet').html('<i class="fa fa-save"></i> Kaydet');
+                aracGrupGetir();
+            }
+        };
+        fd.append("adi", adi);
+
+
+        xhr.send(fd);
+
+    }
+
+    function aracGrupGetir(){
+
+            var url = '{{ path('panel_aracgrup_getir') }}';
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            xhr.open("POST", url, true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    $('#gelenveriler').html(xhr.responseText);
+
+                     $('#aracGrup').DataTable({
+                            "language": {
+                                "url": "/assets/datatablesTr.json"
+                            },
+                            "responsive": true,
+                        });
+
+
+                }
+            };
+            //fd.append("adsoyad", adsoyad);
+
+            xhr.send(fd);
+    }
+
+    aracGrupGetir();
+
+</script>
+{% endblock %}

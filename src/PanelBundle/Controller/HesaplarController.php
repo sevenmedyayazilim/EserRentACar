@@ -166,5 +166,45 @@ class HesaplarController extends Controller
         return new Response('');
     }
 
+    public function sifreDegistirAction(Request $veri)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $sifre = $veri->request->get('sifre');
+        $id = $veri->request->get('id');
+
+        $qb = $em->createQueryBuilder();
+        $hesap=$qb->select('u.adi,u.soyadi,u.email,u.username')
+            ->from('PanelBundle:User', 'u')
+            ->where('u.id='.$id)
+            ->getQuery()
+            ->getScalarResult();
+
+        $encoder_service = $this->get('security.encoder_factory');
+        $encoder = $encoder_service->getEncoder($this->getUser());
+        $new_pwd_encoded = $encoder->encodePassword($sifre, $this->getUser()->getSalt());
+
+
+        $qb=$em->createQueryBuilder();
+        $q = $qb->update('PanelBundle:User', 'u')
+            ->set('u.password', ':password')
+            ->where('u.id = '.$id)
+            ->setParameter('password', $new_pwd_encoded)
+            ->getQuery()
+            ->execute();
+
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Şifreniz değiştirildi.')
+            ->setFrom(array('bilgilendirme@sevenmedya.com'=>'Seven Car Rental'))
+            ->setTo(array($hesap[0]['email']=>$hesap[0]['adi'].' '.$hesap[0]['soyadi']))
+            ->setBody($this->renderView('@Panel/Hesaplar/sifreDegistir_mail.html.twig', array('kullaniciadi' => $hesap[0]['username'],'adi' => $hesap[0]['adi'],'soyadi'=>$hesap[0]['soyadi'],'pass'=>$sifre,'konu'=>'Şifreniz değiştirildi.')), 'text/html');
+        $this->get('mailer')->send($message);
+
+
+
+        return new Response('');
+
+    }
+
 
 }

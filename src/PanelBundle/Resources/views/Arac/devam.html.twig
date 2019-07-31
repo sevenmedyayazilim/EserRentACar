@@ -1,0 +1,693 @@
+{% extends 'panelBase.html.twig' %}
+{% block sayfaBaslik %} Araç Ekle {% endblock %}
+{% block sayfaUst %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('panel_homepage') }}">Anasayfa</a></li>
+        <li class="breadcrumb-item"><a href="{{ path('panel_arac_homepage') }}">Araçlar</a></li>
+        <li class="breadcrumb-item active">Ekle</li>
+    </ol>
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body wizard-content">
+                    <div class="alert alert-info">Yarım kalan araç bilgileri otomatik olarak girilmiştir. Eksik kalan alanları ve adımları tamamlayarak aracı ekleyebilirsiniz.</div>
+                    <form action="#" class="tab-wizard wizard-circle">
+                        <!-- Step 1 -->
+                        <h6>Bilgiler</h6>
+                        <section class="mt-3 mb-3 form-material">
+                            <div class="row">
+                                <div class="form-group col-md-5 col-sm-12">
+                                    {% set plaka = arac.plaka|split(' ') %}
+                                    <label class="w-100"><i class="text-danger">*</i> Plaka : </label>
+                                    <input type="text" class="form-control numeric " style="width: 10%" maxlength="2" id="plakaBas" placeholder="01" value="{{ plaka[0] }}">
+                                    <input type="text" class="form-control" style="width: 20%;margin-left: 10px;" maxlength="4" id="plakaOrta" placeholder="ABCD" onblur="hepsiBuyuk(this)" value="{{ plaka[1] }}">
+                                    <input type="text" class="form-control numeric " style="width: 20%;margin-left: 10px;" maxlength="5" id="plakaSon" placeholder="12345" value="{{ plaka[2] }}">
+                                </div>
+                                <div class="col-md-1 col-sm-12"></div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label><i class="text-danger">*</i> Ofis : </label>
+                                    <select class="select2 form-control custom-select" data-placeholder="Seçiniz" style="width: 100%; height:36px;" id="ofis" >
+                                        <option></option>
+                                        {% for ofis in ofisler %}
+                                            <option value="{{ ofis.id }}" {% if ofis.id == arac.ofisid %}selected{% endif %}>{{ ofis.adi }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-5 col-sm-12">
+                                    <label><i class="text-danger">*</i> Araç Grubu : </label>
+                                    <select class="select2 form-control custom-select" data-placeholder="Seçiniz" style="width: 100%; height:36px;" id="arac_grup" >
+                                        <option></option>
+                                        {% for aracgrup in aracGruplari %}
+                                            <option value="{{ aracgrup.id }}" {% if aracgrup.id == arac.aracgrupid %}selected{% endif %}>{{ aracgrup.adi }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-md-1 col-sm-12"></div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label><i class="text-danger">*</i> Marka : </label>
+                                    <input type="text" class="form-control" id="marka" onblur="harfleriBuyut(this)" value="{{ arac.marka }}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-5 col-sm-12">
+                                    <label><i class="text-danger">*</i> Model : </label>
+                                    <input type="text" class="form-control" id="model" onblur="harfleriBuyut(this)" value="{{ arac.model }}">
+                                </div>
+                                <div class="col-md-1 col-sm-12"></div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label><i class="text-danger">*</i> Motor Hacmi : </label>
+                                    <input type="text" class="form-control numeric" id="motor_hacmi" value="{{ arac.motorHacmi }}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-5 col-sm-12">
+                                    <label> Paket : </label>
+                                    <input type="text" class="form-control" id="paket" onblur="harfleriBuyut(this)" value="{{ arac.paket|default('') }}">
+                                </div>
+                                <div class="col-md-1 col-sm-12"></div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label> Yıl : </label>
+                                    <input type="text" class="form-control numeric" id="yil" value="{{ arac.yil|default('') }}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-5 col-sm-12">
+                                    <label><i class="text-danger">*</i> Kasa Tipi : </label>
+                                    <select class="select2 form-control custom-select" data-placeholder="Seçiniz" style="width: 100%; height:36px;" id="kasa_tipi" >
+                                        <option></option>
+                                        <option {% if 'Cabrio' == arac.kasaTipi %}selected{% endif %} value="Cabrio">Cabrio</option>
+                                        <option {% if 'Coupe' == arac.kasaTipi %}selected{% endif %} value="Coupe">Coupe</option>
+                                        <option {% if 'Hatchback 3 Kapı' == arac.kasaTipi %}selected{% endif %} value="Hatchback 3 Kapı">Hatchback 3 Kapı</option>
+                                        <option {% if 'Hatchback 5 Kapı' == arac.kasaTipi %}selected{% endif %} value="Hatchback 5 Kapı">Hatchback 5 Kapı</option>
+                                        <option {% if 'Sedan' == arac.kasaTipi %}selected{% endif %} value="Sedan">Sedan</option>
+                                        <option {% if 'Station Wagon' == arac.kasaTipi %}selected{% endif %} value="Station Wagon">Station Wagon</option>
+                                        <option {% if 'Crossover' == arac.kasaTipi %}selected{% endif %} value="Crossover">Crossover</option>
+                                        <option {% if 'MPV' == arac.kasaTipi %}selected{% endif %} value="MPV">MPV</option>
+                                        <option {% if 'Roadster' == arac.kasaTipi %}selected{% endif %} value="Roadster">Roadster</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-1 col-sm-12"></div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label><i class="text-danger">*</i> Vites Tipi : </label>
+                                    <select class="select2 form-control custom-select" data-placeholder="Seçiniz" style="width: 100%; height:36px;" id="vites_tipi" >
+                                        <option></option>
+                                        <option {% if 'Otomatik' == arac.vitesTuru %}selected{% endif %} value="Otomatik">Otomatik</option>
+                                        <option {% if 'Yarı Otomatik' == arac.vitesTuru %}selected{% endif %} value="Yarı Otomatik">Yarı Otomatik</option>
+                                        <option {% if 'Manuel' == arac.vitesTuru %}selected{% endif %} value="Manuel">Manuel</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-5 col-sm-12">
+                                    <label><i class="text-danger">*</i> Yakıt Tipi : </label>
+                                    <select class="select2 form-control custom-select" data-placeholder="Seçiniz" style="width: 100%; height:36px;" id="yakit_tipi" >
+                                        <option></option>
+                                        <option {% if 'Dizel' == arac.yakitTipi %}selected{% endif %} value="Dizel">Dizel</option>
+                                        <option {% if 'Benzin' == arac.yakitTipi %}selected{% endif %} value="Benzin">Benzin</option>
+                                        <option {% if 'Benzin & LPG' == arac.yakitTipi %}selected{% endif %} value="Benzin & LPG">Benzin & LPG</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-1 col-sm-12"></div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label><i class="text-danger">*</i> Araç Rengi : </label>
+                                    <input type="text" class="form-control"  id="renk" value="{{ arac.renk }}" onblur="harfleriBuyut(this)">
+                                </div>
+                            </div>
+
+
+
+                        </section>
+                        <!-- Step 2 -->
+                        <h6>Fiyat ve İndirimler</h6>
+                        <section class="mt-3 mb-3 form-material">
+                            <div class="row">
+                                <div class="form-group col-md-5 col-sm-12">
+                                    <label><i class="text-danger">*</i> Liste Fiyatı (₺) : </label>
+                                    <input type="text" class="form-control priceFormat" id="liste_fiyat" value="{{ arac.listeFiyat|number_format(2,'','.') }}">
+                                </div>
+                                <div class="col-md-1 col-sm-12"></div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label><i class="text-danger">*</i> Online Rezervasyon Fiyatı (₺) : </label>
+                                    <input type="text" class="form-control priceFormat" id="online_rezervasyon_fiyat" onblur="if(this.value>=$('#liste_fiyat').val()) { $(this).val(''); Bildirim('error','Liste fiyatından büyük olamaz!')}" value="{{ arac.onlineRezervasyonFiyat|number_format(2,'','.') }}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-12 col-sm-12">
+                                    <label><i class="text-danger">*</i> K. Kartı Bloke Tutarı : </label>
+                                    <input type="text" class="form-control priceFormat"  id="kk_bloke_tutar" value="{{ arac.kkBlokeTutar|number_format(2,'','.') }}">
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <label class="col-md-12">İndirim 1 : </label>
+                                <div class="form-group col-md-4 col-sm-12 mb-2">
+                                    <select class="select2 form-control custom-select indirimCheck" data-placeholder="... Gün Üzeri" style="width: 100%; height:36px;" id="indirim1Tip" onchange="indirimKontrol();" >
+                                        <option></option>
+                                        {% for gun in 1..999 %}
+                                            <option value="{{ gun }}" {% if gun == arac.indirim1tip %}selected{% endif %}>{{ gun }} Gün Üzeri</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-4 col-sm-12 mb-2">
+                                    <input type="text" class="form-control priceFormat"  id="indirim1" placeholder="Fiyat" onblur="if($('#indirim1Tip').val()==''){$(this).val(''); Bildirim('error','Önce gün seçiniz.')}" value="{% if arac.indirim1|default('')!='' %}{{ arac.indirim1|number_format(2,'','.') }}{% endif %}">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <label class="col-md-12">İndirim 2 : </label>
+                                <div class="form-group col-md-4 col-sm-12 mb-2">
+                                    <select class="select2 form-control custom-select indirimCheck" data-placeholder="... Gün Üzeri" style="width: 100%; height:36px;" id="indirim2Tip" onchange="indirimKontrol();">
+                                        <option></option>
+                                        {% for gun in 1..999 %}
+                                            <option value="{{ gun }}" {% if gun == arac.indirim2tip %}selected{% endif %}>{{ gun }} Gün Üzeri</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-4 col-sm-12 mb-2">
+                                    <input type="text" class="form-control priceFormat"  id="indirim2" placeholder="Fiyat" onblur="if($('#indirim2Tip').val()==''){$(this).val(''); Bildirim('error','Önce gün seçiniz.')}" value="{% if arac.indirim2|default('')!='' %}{{ arac.indirim2|number_format(2,'','.') }}{% endif %}">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <label class="col-md-12">İndirim 3 : </label>
+                                <div class="form-group col-md-4 col-sm-12 mb-2">
+                                    <select class="select2 form-control custom-select indirimCheck" data-placeholder="... Gün Üzeri" style="width: 100%; height:36px;" id="indirim3Tip" onchange="indirimKontrol();">
+                                        <option></option>
+                                        {% for gun in 1..999 %}
+                                            <option value="{{ gun }}" {% if gun == arac.indirim3tip %}selected{% endif %}>{{ gun }} Gün Üzeri</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-4 col-sm-12 mb-2">
+                                    <input type="text" class="form-control priceFormat"  id="indirim3" placeholder="Fiyat" onblur="if($('#indirim3Tip').val()==''){$(this).val(''); Bildirim('error','Önce gün seçiniz.')}" value="{% if arac.indirim3|default('')!='' %}{{ arac.indirim3|number_format(2,'','.') }}{% endif %}">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <label class="col-md-12">İndirim 4 : </label>
+                                <div class="form-group col-md-4 col-sm-12 mb-2">
+                                    <select class="select2 form-control custom-select indirimCheck" data-placeholder="... Gün Üzeri" style="width: 100%; height:36px;" id="indirim4Tip" onchange="indirimKontrol();">
+                                        <option></option>
+                                        {% for gun in 1..999 %}
+                                            <option value="{{ gun }}" {% if gun == arac.indirim4tip %}selected{% endif %}>{{ gun }} Gün Üzeri</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4 col-sm-12 mb-2">
+                                    <input type="text" class="form-control priceFormat"  id="indirim4" placeholder="Fiyat" onblur="if($('#indirim4Tip').val()==''){$(this).val(''); Bildirim('error','Önce gün seçiniz.')}" value="{% if arac.indirim4|default('')!='' %}{{ arac.indirim4|number_format(2,'','.') }}{% endif %}">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <label class="col-md-12">İndirim 5 : </label>
+                                <div class="form-group col-md-4 col-sm-12 mb-2">
+                                    <select class="select2 form-control custom-select indirimCheck" data-placeholder="... Gün Üzeri" style="width: 100%; height:36px;" id="indirim5Tip" onchange="indirimKontrol();">
+                                        <option></option>
+                                        {% for gun in 1..999 %}
+                                            <option value="{{ gun }}" {% if gun == arac.indirim5tip %}selected{% endif %}>{{ gun }} Gün Üzeri</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-4 col-sm-12 mb-2">
+                                    <input type="text" class="form-control priceFormat"  id="indirim5" placeholder="Fiyat" onblur="if($('#indirim5Tip').val()==''){$(this).val(''); Bildirim('error','Önce gün seçiniz.')}" value="{% if arac.indirim5|default('')!='' %}{{ arac.indirim5|number_format(2,'','.') }}{% endif %}">
+                                </div>
+                            </div>
+
+                        </section>
+                        <!-- Step 2 -->
+                        <h6>Özellikler</h6>
+                        <section class="mt-3 mb-3 form-material">
+
+                            <div class="row">
+                                <div class="form-group col-md-5 col-sm-12">
+                                    <label><i class="text-danger">*</i> Yetişkin Sayısı : </label>
+                                    <input type="text" class="form-control numeric" id="yetiskin_sayisi" value="{{ arac.yetiskinSayisi }}">
+                                </div>
+                                <div class="col-md-1 col-sm-12"></div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label><i class="text-danger">*</i> Büyük Bavul Sayısı : </label>
+                                    <input type="text" class="form-control numeric" id="buyuk_bavul" value="{{ arac.buyukBavul }}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-5 col-sm-12">
+                                    <label><i class="text-danger">*</i> Küçük Bavul Sayısı : </label>
+                                    <input type="text" class="form-control numeric" id="kucuk_bavul" value="{{ arac.kucukBavul }}">
+                                </div>
+                                <div class="col-md-1 col-sm-12"></div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label><i class="text-danger">*</i> Yaş Sınırı : </label>
+                                    <select class="select2 form-control custom-select" data-placeholder="... yaş ve üzeri" style="width: 100%; height:36px;" id="yas_siniri" >
+                                        <option></option>
+                                        {% for gun in 1..100 %}
+                                            <option value="{{ gun }}" {% if gun == arac.yasSiniri %}selected{% endif %}>{{ gun }} yaş ve üzeri</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-5 col-sm-12">
+                                    <label><i class="text-danger">*</i> Airbag : </label>
+                                    <select class="select2 form-control custom-select" data-placeholder="Seçiniz" style="width: 100%; height:36px;" id="airbag" >
+                                        <option></option>
+                                        <option {% if 'Sürücü Airbag' == arac.airbag %}selected{% endif %} value="Sürücü Airbag">Sürücü Airbag</option>
+                                        <option {% if 'Sürücü ve Yolcu Airbag' == arac.airbag %}selected{% endif %} value="Sürücü ve Yolcu Airbag">Sürücü ve Yolcu Airbag</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-1 col-sm-12"></div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label><i class="text-danger">*</i> Abs : </label>
+                                    <select class="select2 form-control custom-select" data-placeholder="Seçiniz" style="width: 100%; height:36px;" id="abs" >
+                                        <option></option>
+                                        <option {% if 'Var' == arac.abs %}selected{% endif %} value="Var">Var</option>
+                                        <option {% if 'Yok' == arac.abs %}selected{% endif %} value="Yok">Yok</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-5 col-sm-12">
+                                    <label><i class="text-danger">*</i> Klima : </label>
+                                    <select class="select2 form-control custom-select" data-placeholder="Seçiniz" style="width: 100%; height:36px;" id="klima" >
+                                        <option></option>
+                                        <option {% if 'Var' == arac.klima %}selected{% endif %} value="Var">Var</option>
+                                        <option {% if 'Yok' == arac.klima %}selected{% endif %} value="Yok">Yok</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-1 col-sm-12"></div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label><i class="text-danger">*</i> Km Sınırı (Günlük) : </label>
+                                    <input type="text" class="form-control numeric" id="km_siniri" value="{{ arac.kmSiniri }}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-5 col-sm-12">
+                                    <label><i class="text-danger">*</i> Ehliyet Yaşı : </label>
+                                    <select class="select2 form-control custom-select" data-placeholder="... yaş ve üzeri" style="width: 100%; height:36px;" id="ehliyet_yasi" >
+                                        <option></option>
+                                        {% for gun in 1..100 %}
+                                            <option value="{{ gun }}" {% if gun == arac.ehliyetYasi %}selected{% endif %}>{{ gun }} yaş ve üzeri</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-md-1 col-sm-12"></div>
+                                <div class="form-group col-md-6 col-sm-12">
+
+                                </div>
+                            </div>
+
+
+
+
+                        </section>
+                        <!-- Step 3 -->
+                        <h6>Resimler</h6>
+                        <section>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12" >
+                                    <div id="myPhotos" action="{{ path('panel_arac_resim_yukle') }}" class="dropzone" style="margin-bottom: 30px;">
+                                        <div class="dz-message">
+                                            <div class="icon text-primary" style="font-size: 50px;"><span class="s7-cloud-upload"></span></div>
+                                            <h2 class="text-primary">Resimleri buraya sürükleyip bırakın</h2>
+                                            <span class="note">(Sürükleyip bıraktığınız veya seçtiğiniz resimler otomatik olarak yüklemeye başlar.)</span>
+                                            <br>
+                                            <div class="dropzone-mobile-trigger needsclick"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gelenResimler el-element-overlay resim_sirala">
+
+
+
+                            </div>
+                        </section>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+{% block javascript %}
+<script>
+$().ready(function () {
+
+    swal.fire({
+        title: 'Devam etmek istiyor musunuz?',
+        text: "Yarım kalan araç girişi bulunmaktadır. Yarım kalan alanları tamamlayarak aracı ekleyebilirsiniz.",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#e46a76',
+        cancelButtonColor: '#00c292',
+        confirmButtonText: 'Yeniden Başla',
+        cancelButtonText: 'Devam Et'
+    }).then((result) => {
+        if (result.value) {
+            BlokPage('enabled');
+            var url = '{{ path('panel_arac_yarimkalan_sil') }}';
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            xhr.open("POST", url, true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    window.location.href='{{ path('panel_arac_ekle') }}';
+                }
+            };
+            xhr.send(fd);
+        }
+    });
+
+
+
+      var myPhotos = new Dropzone('#myPhotos', {});
+
+        $(".tab-wizard").steps({
+                headerTag: "h6",
+                bodyTag: "section",
+                transitionEffect: "fade",
+                titleTemplate: '<span class="step">#index#</span> #title#',
+                labels: {
+                    finish: "Kaydet",
+                    next: "İleri",
+                    previous: "Geri",
+                },
+                onStepChanged: function(event, currentIndex, newIndex){
+                        if(currentIndex==3){
+                            resimGetir();
+
+                            myPhotos.destroy();
+                            myPhotos = new Dropzone('#myPhotos', {
+                                    acceptedFiles: "image/jpeg,image/png,image/gif",
+                                    init: function () {
+                                        // Set up any event handlers
+                                        this.on('complete', function (file) {
+                                            myPhotos.removeFile(file);
+                                            resimGetir();
+
+                                        });
+                                        this.on('uploadprogress', function () {
+
+                                        });
+                                    }
+                                });
+                        }
+                },
+                onStepChanging: function(event, currentIndex, newIndex){
+                    var kayit = aracKayit(currentIndex,newIndex);
+                    if (kayit==true){
+                        return true;
+                    }
+
+                },
+                onFinishing: function (event, currentIndex) {
+                        BlokPage('enabled');
+                        var url = '{{ path('panel_arac_kayit_bitir') }}';
+                        var xhr = new XMLHttpRequest();
+                        var fd = new FormData();
+                        xhr.open("POST", url, true);
+                        xhr.onreadystatechange = function () {
+                            if(xhr.readyState === 4 && xhr.status === 200) {
+                                if (xhr.responseText==''){
+                                      Bildirim('success','Araç kaydı tamamlandı. Yönlendiriliyorsunuz...');
+                                      setTimeout(function() {
+                                            window.location.href='{{ path('panel_arac_homepage') }}';
+                                      },3000);
+
+                                      return true;
+
+                                 } else {
+                                    BlokPage('disabled');
+                                     Bildirim('error','En az 1 resim yüklemelisiniz.');
+                                     return false;
+                                  }
+
+                            }
+                        };
+
+                        xhr.send(fd);
+                }
+
+            });
+
+});
+
+    function aracKayit(index,newindex) {
+
+        var ofis =  $('#ofis').val();
+        var arac_grup =  $('#arac_grup').val();
+        var plakaBas =  $('#plakaBas').val().replace(' ','');
+        var plakaOrta =  $('#plakaOrta').val().replace(' ','');
+        var plakaSon =  $('#plakaSon').val().replace(' ','');
+        var marka =  $('#marka').val();
+        var model =  $('#model').val();
+        var motor_hacmi =  $('#motor_hacmi').val();
+        var paket =  $('#paket').val();
+        var yil =  $('#yil').val();
+        var kasa_tipi =  $('#kasa_tipi').val();
+        var vites_tipi =  $('#vites_tipi').val();
+        var yakit_tipi =  $('#yakit_tipi').val();
+        var renk =  $('#renk').val();
+        var liste_fiyat = $('#liste_fiyat').val();
+        var online_rezervasyon_fiyat = $('#online_rezervasyon_fiyat').val();
+        var kk_bloke_tutar = $('#kk_bloke_tutar').val();
+        var indirim1 = $('#indirim1').val();
+        var indirim1Tip = $('#indirim1Tip').val();
+        var indirim2 = $('#indirim2').val();
+        var indirim2Tip = $('#indirim2Tip').val();
+        var indirim3 = $('#indirim3').val();
+        var indirim3Tip = $('#indirim3Tip').val();
+        var indirim4 = $('#indirim4').val();
+        var indirim4Tip = $('#indirim4Tip').val();
+        var indirim5 = $('#indirim5').val();
+        var indirim5Tip = $('#indirim5Tip').val();
+        var yetiskin_sayisi = $('#yetiskin_sayisi').val();
+        var buyuk_bavul = $('#buyuk_bavul').val();
+        var kucuk_bavul = $('#kucuk_bavul').val();
+        var yas_siniri = $('#yas_siniri').val();
+        var airbag = $('#airbag').val();
+        var abs = $('#abs').val();
+        var klima = $('#klima').val();
+        var km_siniri = $('#km_siniri').val();
+        var ehliyet_yasi = $('#ehliyet_yasi').val();
+
+
+        if((index==0 && newindex==1) || (index==1 && newindex==0)){
+            if((ofis=='') || (arac_grup=='') || (marka=='') || (model=='') || (motor_hacmi=='') || (kasa_tipi=='') || (vites_tipi=='') || (yakit_tipi=='') || (renk=='') || (plakaBas=='') || (plakaOrta=='') || (plakaSon=='')){
+                Bildirim('warning','Lütfen zorunlu alanları doldurunuz.');
+                return false;
+            }
+            return true;
+        }
+        else if((index==1 && newindex==2) || (index==2 && newindex==1)){
+            if((liste_fiyat=='') || (online_rezervasyon_fiyat=='') || (kk_bloke_tutar=='')){
+                Bildirim('warning','Lütfen zorunlu alanları doldurunuz.');
+                return false;
+            }
+            if(indirim1Tip!='' && indirim1==''){
+                Bildirim('warning','Lütfen girdiğiniz 1 numaralı indirimin fiyat alanını doldurunuz.');
+                return false;
+            }
+            if(indirim2Tip!='' && indirim2==''){
+                Bildirim('warning','Lütfen girdiğiniz 2 numaralı indirimin fiyat alanını doldurunuz.');
+                return false;
+            }
+            if(indirim3Tip!='' && indirim3==''){
+                Bildirim('warning','Lütfen girdiğiniz 3 numaralı indirimin fiyat alanını doldurunuz.');
+                return false;
+            }
+            if(indirim4Tip!='' && indirim4==''){
+                Bildirim('warning','Lütfen girdiğiniz 4 numaralı indirimin fiyat alanını doldurunuz.');
+                return false;
+            }
+            if(indirim5Tip!='' && indirim5==''){
+                Bildirim('warning','Lütfen girdiğiniz 5 numaralı indirimin fiyat alanını doldurunuz.');
+                return false;
+            }
+
+
+            return true;
+        }
+        else if((index==2 && newindex==3) || (index==3 && newindex==2)){
+            if((yetiskin_sayisi=='') || (buyuk_bavul=='') || (kucuk_bavul=='') || (yas_siniri=='') || (airbag=='') || (abs=='') || (klima=='') || (km_siniri=='') || (ehliyet_yasi=='')){
+                Bildirim('warning','Lütfen zorunlu alanları doldurunuz.');
+                return false;
+            }
+
+            BlokPage('enabled');
+            var url = '{{ path('panel_arac_ekle_kayit') }}';
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            xhr.open("POST", url, true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    BlokPage('disabled');
+                }
+            };
+
+            fd.append("ofis", ofis);
+            fd.append("arac_grup", arac_grup);
+            fd.append("plaka", plakaBas+' '+plakaOrta+' '+plakaSon);
+            fd.append("marka", marka);
+            fd.append("model", model);
+            fd.append("motor_hacmi", motor_hacmi);
+            fd.append("paket", paket);
+            fd.append("yil", yil);
+            fd.append("kasa_tipi", kasa_tipi);
+            fd.append("vites_tipi", vites_tipi);
+            fd.append("yakit_tipi", yakit_tipi);
+            fd.append("renk", renk);
+            fd.append("liste_fiyat", liste_fiyat);
+            fd.append("online_rezervasyon_fiyat", online_rezervasyon_fiyat);
+            fd.append("kk_bloke_tutar", kk_bloke_tutar);
+            fd.append("indirim1", indirim1);
+            fd.append("indirim1Tip", indirim1Tip);
+            fd.append("indirim2", indirim2);
+            fd.append("indirim2Tip", indirim2Tip);
+            fd.append("indirim3", indirim3);
+            fd.append("indirim3Tip", indirim3Tip);
+            fd.append("indirim4", indirim4);
+            fd.append("indirim4Tip", indirim4Tip);
+            fd.append("indirim5", indirim5);
+            fd.append("indirim5Tip", indirim5Tip);
+            fd.append("yetiskin_sayisi", yetiskin_sayisi);
+            fd.append("buyuk_bavul", buyuk_bavul);
+            fd.append("kucuk_bavul", kucuk_bavul);
+            fd.append("yas_siniri", yas_siniri);
+            fd.append("airbag", airbag);
+            fd.append("abs", abs);
+            fd.append("klima", klima);
+            fd.append("km_siniri", km_siniri);
+            fd.append("ehliyet_yasi", ehliyet_yasi);
+            fd.append("islem", 'ekle');
+
+
+            xhr.send(fd);
+            return true;
+
+
+        }
+        else if((index==3 && newindex==4) || (index==4 && newindex==3)){
+
+
+        }
+    }
+
+
+    function indirimKontrol() {
+            $('.indirimCheck option').prop('disabled',false);
+            var val1 = $('#indirim1Tip').val();
+            var val2 = $('#indirim2Tip').val();
+            var val3 = $('#indirim3Tip').val();
+            var val4 = $('#indirim4Tip').val();
+            var val5 = $('#indirim5Tip').val();
+
+            if(val1 != '') {$('.indirimCheck option[value='+val1+']').prop('disabled',true); $('#indirim1Tip option[value='+val1+']').prop('disabled',false);}
+            if(val2 != '') {$('.indirimCheck option[value='+val2+']').prop('disabled',true); $('#indirim2Tip option[value='+val2+']').prop('disabled',false);}
+            if(val3 != '') {$('.indirimCheck option[value='+val3+']').prop('disabled',true); $('#indirim3Tip option[value='+val3+']').prop('disabled',false);}
+            if(val4 != '') {$('.indirimCheck option[value='+val4+']').prop('disabled',true); $('#indirim4Tip option[value='+val4+']').prop('disabled',false);}
+            if(val5 != '') {$('.indirimCheck option[value='+val5+']').prop('disabled',true); $('#indirim5Tip option[value='+val5+']').prop('disabled',false);}
+
+
+    }
+
+   function resimGetir(){
+            BlokPage('enabled');
+            var url = '{{ path('panel_arac_resim_getir') }}';
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            xhr.open("POST", url, true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    BlokPage('disabled');
+                    $('.gelenResimler').html(xhr.responseText);
+
+                         $('.image-popup-vertical-fit').magnificPopup({
+                                type: 'image',
+                                closeOnContentClick: true,
+                                mainClass: 'mfp-img-mobile',
+                                image: {
+                                    verticalFit: true
+                                }
+                         });
+
+                          $(".resim_sirala").sortable({
+                                handle : '.handle',
+                                update : function () {
+                                   // BlokPage('enabled');
+                                    var order = $('.resim_sirala').sortable('serialize');
+                                    orders = order.split('&');
+                                    var url = '{{ path('panel_arac_resim_sirala') }}';
+                                    var xhr = new XMLHttpRequest();
+                                    var fd = new FormData();
+                                    xhr.open("POST", url, true);
+                                    xhr.onreadystatechange = function () {
+                                          if(xhr.readyState === 4 && xhr.status === 200) {
+                                             Bildirim('success','Resim sıraları kaydedildi.');
+                                           }
+                                    };
+                                    $.each( orders, function( key, value ) {
+                                        var values = value.split('=');
+                                        fd.append(values[0],values[1]);
+                                    });
+                                    xhr.send(fd);
+                                }
+                            });
+
+
+
+                }
+            };
+            //fd.append("adsoyad", adsoyad);
+
+            xhr.send(fd);
+    }
+
+   function resimSil(id){
+            BlokPage('enabled');
+            var url = '{{ path('panel_arac_resim_sil') }}';
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            xhr.open("POST", url, true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                         resimGetir();
+
+                         BlokPage('disabled');
+
+                }
+            };
+            //fd.append("adsoyad", adsoyad);
+            fd.append("id", id);
+            xhr.send(fd);
+    }
+
+    function anaResimYap(aracid,resimid) {
+            BlokPage('enabled');
+            var url = '{{ path('panel_arac_resim_ana') }}';
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            xhr.open("POST", url, true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                         resimGetir();
+                         BlokPage('disabled');
+
+                }
+            };
+            //fd.append("adsoyad", adsoyad);
+            fd.append("aracid", aracid);
+            fd.append("resimid", resimid);
+            xhr.send(fd);
+    }
+
+</script>
+{% endblock %}

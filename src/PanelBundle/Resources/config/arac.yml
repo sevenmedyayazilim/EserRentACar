@@ -1,0 +1,51 @@
+panel_arac_homepage:
+  path:     /
+  defaults: { _controller: PanelBundle:Arac:index }
+
+panel_arac_getir:
+  path:     /getir
+  defaults: { _controller: PanelBundle:Arac:getir }
+
+panel_arac_ekle:
+  path:     /ekle
+  defaults: { _controller: PanelBundle:Arac:ekle }
+
+panel_arac_ekle_kayit:
+  path:     /ekle_kayit
+  defaults: { _controller: PanelBundle:Arac:ekle_kayit }
+
+panel_arac_yarimkalan_sil:
+  path:     /yarimkalan_sil
+  defaults: { _controller: PanelBundle:Arac:yarimkalan_sil }
+
+panel_arac_resim_yukle:
+  path:     /resim_yukle
+  defaults: { _controller: PanelBundle:Arac:resim_yukle }
+
+panel_arac_resim_getir:
+  path:     /resim_getir
+  defaults: { _controller: PanelBundle:Arac:resim_getir }
+
+panel_arac_resim_sil:
+  path:     /resim_sil
+  defaults: { _controller: PanelBundle:Arac:resim_sil }
+
+panel_arac_resim_ana:
+  path:     /resim_ana
+  defaults: { _controller: PanelBundle:Arac:resim_ana }
+
+panel_arac_resim_sirala:
+  path:     /resim_sirala
+  defaults: { _controller: PanelBundle:Arac:resim_sirala }
+
+panel_arac_kayit_bitir:
+  path:     /kayit_bitir
+  defaults: { _controller: PanelBundle:Arac:kayit_bitir }
+
+panel_arac_duzenle:
+  path:     /duzenle/{id}
+  defaults: { _controller: PanelBundle:Arac:duzenle }
+
+panel_arac_kaldir:
+  path:     /kaldir
+  defaults: { _controller: PanelBundle:Arac:kaldir }

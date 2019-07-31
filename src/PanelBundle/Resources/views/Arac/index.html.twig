@@ -1,0 +1,63 @@
+{% extends 'panelBase.html.twig' %}
+{% block sayfaBaslik %} Araçlar {% endblock %}
+{% block sayfaUst %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('panel_homepage') }}">Anasayfa</a></li>
+        <li class="breadcrumb-item active">Araçlar</li>
+    </ol>
+
+
+    <a href="{{ path('panel_arac_ekle') }}" class="btn btn-success waves-effect d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Araç Ekle</a>
+
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive" id="gelenveriler">
+                        <span style="font-size: 16px;" class="text-danger"><img src="{{ asset('assets/loading.svg') }}" width="45"> Veriler Yükleniyor...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+{% block javascript %}
+
+<script>
+
+
+    function hesapGetir(){
+
+            var url = '{{ path('panel_arac_getir') }}';
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            xhr.open("POST", url, true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    $('#gelenveriler').html(xhr.responseText);
+
+                     $('#hesaplar').DataTable({
+                            "language": {
+                                "url": "/assets/datatablesTr.json"
+                            },
+                            "responsive": true,
+                        });
+
+
+                }
+            };
+            //fd.append("adsoyad", adsoyad);
+
+            xhr.send(fd);
+    }
+
+    hesapGetir();
+
+</script>
+{% endblock %}

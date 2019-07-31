@@ -27,13 +27,13 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Adı : </label>
                             <div class="col-lg-9 col-sm-12">
-                                <input type="text" class="form-control" id="adi">
+                                <input type="text" class="form-control" id="adi" onblur="harfleriBuyut(this)">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Soyadı : </label>
                             <div class="col-lg-9 col-sm-12">
-                                <input type="text" class="form-control" id="soyadi">
+                                <input type="text" class="form-control" id="soyadi" onblur="hepsiBuyuk(this)">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -51,7 +51,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-sm-12"> Ünvan : </label>
                             <div class="col-lg-9 col-sm-12">
-                                <input type="text" class="form-control" id="unvan">
+                                <input type="text" class="form-control" id="unvan" onblur="harfleriBuyut(this)">
                             </div>
                         </div>
                     </form>
@@ -84,6 +84,40 @@
         <!-- /.modal-dialog -->
     </div>
 
+    <div id="sifreDegistir" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Şifre Değiştir</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-material text-left sifreDegistir">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Şifre : </label>
+                            <div class="col-lg-9 col-sm-12">
+                                <input type="password" class="form-control" id="sifre">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-sm-12"><i class="text-danger">*</i> Şifre Tekrar : </label>
+                            <div class="col-lg-9 col-sm-12">
+                                <input type="password" class="form-control" id="sifretekrar">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success waves-effect" id="kaydet"><i class="fa fa-save"></i> Kaydet</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
 {% endblock %}
 
 {% block body %}
@@ -103,6 +137,45 @@
 {% endblock %}
 {% block javascript %}
 <script>
+function sifreDegistir(id){
+
+    var sifre = $('.sifreDegistir #sifre').val();
+    var sifretekrar = $('.sifreDegistir #sifretekrar').val();
+
+    if((sifre=='') || (sifretekrar=='')){
+        Bildirim('warning','Lütfen zorunlu alanları doldurunuz.');
+        return false;
+    }
+    if((sifre != sifretekrar)){
+        Bildirim('error','Şifreniz tekrarı ile aynı değil.');
+        return false;
+    }
+
+    BlokPage('enabled');
+    $('#sifreDegistir #kaydet').html('<i class="fa fa-cog fa-spin"></i> Kaydediliyor..');
+
+    var url = '{{ path('panel_hesaplar_sifreDegistir') }}';
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            xhr.open("POST", url, true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+
+                    Bildirim('success','Şifre değiştirildi ve yeni şifre e-posta adresine gönderildi.');
+                    BlokPage('disabled');
+                    $('#sifreDegistir').modal('toggle');
+                    $('#sifreDegistir #kaydet').html('<i class="fa fa-save"></i> Kaydet');
+                    hesapGetir();
+
+                }
+            };
+            fd.append("sifre", sifre);
+            fd.append("id", id);
+
+            xhr.send(fd);
+
+        }
+
 function hesapSil(id){
 
                 swal.fire({
